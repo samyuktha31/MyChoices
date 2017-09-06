@@ -22,7 +22,7 @@
                             <div class="card-block primary-info-view">
                                 <div class="form-group">
                                     <label for="CenterId">Referred to whom *</label>
-                                    <input [formControl]="referredForm.controls['ReferredToWhom']" class="form-control" maxlength="2000" />
+                                    <input formControlName="ReferredToWhom" class="form-control" maxlength="2000" />
                                     <div>
                                         <small *ngIf="referredForm.controls['ReferredToWhom'].hasError('required') && referredForm.controls['ReferredToWhom'].touched" class="mat-text-warn">Field is required.</small>
                                     </div>
@@ -42,7 +42,7 @@
                             <div class="card-block primary-info-view">
                                 <div class="form-group">
                                     <label for="CenterId">Case resolution log *</label>
-                                    <input [formControl]="unresolvedForm.controls['ResolutionLog']" class="form-control" maxlength="2000" />
+                                    <input formControlName="ResolutionLog" class="form-control" maxlength="2000" />
                                     <div>
                                         <small *ngIf="unresolvedForm.controls['ResolutionLog'].hasError('required') && unresolvedForm.controls['ResolutionLog'].touched" class="mat-text-warn">Field is required.</small>
                                     </div>
@@ -61,7 +61,7 @@
                             <div class="card-block primary-info-view">
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Reason for selected Closure status *</label>
-                                    <input [formControl]="closedForm.controls['ReasonForClosureStatus']" class="form-control" maxlength="2000" />
+                                    <input formControlName="ReasonForClosureStatus" class="form-control" maxlength="2000" />
                                     <div>
                                         <small *ngIf="closedForm.controls['ReasonForClosureStatus'].hasError('required') && closedForm.controls['ReasonForClosureStatus'].touched" class="mat-text-warn">Field is required.</small>
                                     </div>
@@ -85,7 +85,7 @@
 
                                 <div class="form-group">
                                     <label for="CaseSubject">Subject *</label>
-                                    <input [formControl]="category2Form.controls['CaseSubject']" class="form-control" maxlength="2000" />
+                                    <input formControlName="CaseSubject" class="form-control" maxlength="2000" />
                                     <div>
                                         <small *ngIf="category2Form.controls['CaseSubject'].hasError('required') && category2Form.controls['CaseSubject'].touched" class="mat-text-warn">Case Status is required.</small>
                                     </div>
@@ -93,7 +93,7 @@
 
                                 <div class="form-group">
                                     <label for="CaseDescription">Description *</label>
-                                    <textarea [formControl]="category2Form.controls['CaseDescription']" class="form-control" maxlength="2000"></textarea>
+                                    <textarea formControlName="CaseDescription" class="form-control" maxlength="2000"></textarea>
                                     <div>
                                         <small *ngIf="category2Form.controls['CaseDescription'].hasError('required') && category2Form.controls['CaseDescription'].touched" class="mat-text-warn">Case Status is required.</small>
                                     </div>
@@ -119,12 +119,12 @@
 
                                 <div class="form-group">
                                     <label for="CenterId">yes, specify</label>
-                                    <input [formControl]="category2Form.controls['SoughtHelpDesc']" class="form-control" />
+                                    <input formControlName="SoughtHelpDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, what was the outcome of that help?</label>
-                                    <input [formControl]="category2Form.controls['SoughtHelpOutPut']" class="form-control" />
+                                    <input formControlName="SoughtHelpOutPut" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
@@ -138,7 +138,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="CenterId">If other, please specify</label>
-                                    <input [formControl]="category2Form.controls['PeacemakerAssistanceDesc']" class="form-control" />
+                                    <input formControlName="PeacemakerAssistanceDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
@@ -169,7 +169,7 @@
                             <div class="card-block primary-info-view">
                                 <div class="form-group">
                                     <label for="PrimaryEmergencyContactName">Primary Emergency Contact Name *</label>
-                                    <input [formControl]="category2Form.controls['PrimaryEmergencyContactName']" class="form-control" />
+                                    <input formControlName="PrimaryEmergencyContactName" class="form-control" />
                                     <div>
                                         <small *ngIf="category2Form.controls['PrimaryEmergencyContactName'].hasError('required') && category2Form.controls['PrimaryEmergencyContactName'].touched" class="mat-text-warn">Field is required.</small>
                                     </div>
@@ -187,7 +187,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Phone number *</label>
                                     <div class="form-group" [class.has-danger]="category2Form.controls['PrimaryEmergencyContactPhoneNumber'].invalid && category2Form.controls['PrimaryEmergencyContactPhoneNumber'].touched">
-                                        <input [formControl]="category2Form.controls['PrimaryEmergencyContactPhoneNumber']" digits maxlength="14" class="form-control" />
+                                        <input formControlName="PrimaryEmergencyContactPhoneNumber" digits maxlength="14" class="form-control" />
                                         <div>
                                             <small *ngIf="category2Form.controls['PrimaryEmergencyContactPhoneNumber'].dirty && category2Form.controls['PrimaryEmergencyContactPhoneNumber'].invalid">Please provide a valid Phone number</small>
                                         </div>
@@ -213,7 +213,7 @@
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, please specify</label>
-                                    <input [formControl]="category2Form.controls['SufferingFromAnyMajorIllnessDesc']" class="form-control" />
+                                    <input formControlName="SufferingFromAnyMajorIllnessDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
@@ -227,7 +227,7 @@
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, please specify </label>
-                                    <input [formControl]="category2Form.controls['DiagnosedPsychiatricIllnessDesc']" class="form-control" />
+                                    <input formControlName="DiagnosedPsychiatricIllnessDesc" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -254,7 +254,7 @@
 
                                 <div class="form-group">
                                     <label for="CaseSubject">Subject *</label>
-                                    <input [formControl]="category3Form.controls['CaseSubject']" class="form-control" maxlength="2000" />
+                                    <input formControlName="CaseSubject" class="form-control" maxlength="2000" />
                                     <div>
                                         <small *ngIf="category3Form.controls['CaseSubject'].hasError('required') && category3Form.controls['CaseSubject'].touched" class="mat-text-warn">Case Status is required.</small>
                                     </div>
@@ -262,7 +262,7 @@
 
                                 <div class="form-group">
                                     <label for="CaseDescription">Description *</label>
-                                    <textarea [formControl]="category3Form.controls['CaseDescription']" class="form-control" maxlength="2000"></textarea>
+                                    <textarea formControlName="CaseDescription" class="form-control" maxlength="2000"></textarea>
                                     <div>
                                         <small *ngIf="category3Form.controls['CaseDescription'].hasError('required') && category3Form.controls['CaseDescription'].touched" class="mat-text-warn">Case Status is required.</small>
                                     </div>
@@ -316,12 +316,12 @@
 
                                 <div class="form-group">
                                     <label for="CenterId">yes, specify</label>
-                                    <input [formControl]="category4Form.controls['SoughtHelpDesc']" class="form-control" />
+                                    <input formControlName="SoughtHelpDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, what was the outcome of that help?</label>
-                                    <input [formControl]="category4Form.controls['SoughtHelpOutPut']" class="form-control" />
+                                    <input formControlName="SoughtHelpOutPut" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
@@ -335,7 +335,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="CenterId">If other, please specify</label>
-                                    <input [formControl]="category4Form.controls['PeacemakerAssistanceDesc']" class="form-control" />
+                                    <input formControlName="PeacemakerAssistanceDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
@@ -366,16 +366,16 @@
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">If self-employed or employed, please specify:</label>
-                                    <input [formControl]="category4Form.controls['OccupationDesc']" class="form-control" />
+                                    <input formControlName="OccupationDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Years of marriage *</label>
-                                    <input [formControl]="category4Form.controls['YearOfMarriage']" digits maxlength="2" class="form-control" />
+                                    <input class="form-control" formControlName="YearOfMarriage" digits maxlength="2"/>
                                     <div>
-                                        <small *ngIf="category4Form.controls['YearOfMarriage'].hasError('required') && category4Form.controls['YearOfMarriage'].touched" class="mat-text-warn">Year is required</small>
+                                        <small *ngIf="category4Form.controls['YearOfMarriage'].hasError('required') && category4Form.controls['YearOfMarriage'].touched" class="mat-text-warn">Years of marriage is required</small>
                                         <small *ngIf="category4Form.controls['YearOfMarriage'].dirty && category4Form.controls['YearOfMarriage'].invalid" class="mat-text-warn">Please provide valid Years of marriage</small>
-                                    </div>
+                                </div>
                                 </div>
 
                                 <div class="form-group">
@@ -398,7 +398,7 @@
                             <div class="card-block primary-info-view">
                                 <div class="form-group">
                                     <label for="PrimaryEmergencyContactName">Primary Emergency Contact Name *</label>
-                                    <input [formControl]="category4Form.controls['PrimaryEmergencyContactName']" class="form-control" />
+                                    <input formControlName="PrimaryEmergencyContactName" class="form-control" />
                                     <div>
                                         <small *ngIf="category4Form.controls['PrimaryEmergencyContactName'].hasError('required') && category4Form.controls['PrimaryEmergencyContactName'].touched" class="mat-text-warn">Field is required.</small>
                                     </div>
@@ -416,7 +416,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Phone number *</label>
                                     <div class="form-group" [class.has-danger]="category4Form.controls['PrimaryEmergencyContactPhoneNumber'].invalid && category4Form.controls['PrimaryEmergencyContactPhoneNumber'].touched">
-                                        <input [formControl]="category4Form.controls['PrimaryEmergencyContactPhoneNumber']" digits maxlength="14" class="form-control" />
+                                        <input formControlName="PrimaryEmergencyContactPhoneNumber" digits maxlength="14" class="form-control" />
                                         <div>
                                             <small *ngIf="category4Form.controls['PrimaryEmergencyContactPhoneNumber'].dirty && category4Form.controls['PrimaryEmergencyContactPhoneNumber'].invalid">Please provide a valid Phone number</small>
                                         </div>
@@ -444,7 +444,7 @@
 
                             <div class="form-group">
                                 <label for="CenterId">If yes, please specify:?</label>
-                                <input [formControl]="category4Form.controls['SufferingFromAnyMajorIllnessDesc']" class="form-control" />
+                                <input formControlName="SufferingFromAnyMajorIllnessDesc" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -458,7 +458,7 @@
 
                             <div class="form-group">
                                 <label for="CenterId">If yes, please specify:?</label>
-                                <input [formControl]="category4Form.controls['DiagnosedPsychiatricIllnessDesc']" class="form-control" />
+                                <input formControlName="DiagnosedPsychiatricIllnessDesc" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -472,7 +472,7 @@
 
                             <div class="form-group">
                                 <label for="CenterId">If yes, what medication?</label>
-                                <input [formControl]="category4Form.controls['AnyMedicationDesc']" class="form-control" />
+                                <input formControlName="AnyMedicationDesc" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -486,7 +486,7 @@
 
                             <div class="form-group">
                                 <label for="CenterId">Please specify:</label>
-                                <input [formControl]="category4Form.controls['AnySubstanceDesc']" class="form-control" />
+                                <input formControlName="AnySubstanceDesc" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -500,7 +500,7 @@
 
                             <div class="form-group">
                                 <label for="CenterId">If yes, give details:</label>
-                                <input [formControl]="category4Form.controls['CurrentlyPregnantDesc']" class="form-control" />
+                                <input formControlName="CurrentlyPregnantDesc" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -514,7 +514,7 @@
 
                             <div class="form-group">
                                 <label for="CenterId">If other, please specify</label>
-                                <input [formControl]="category4Form.controls['ReasonForSeekingHelpDesc']" class="form-control" />
+                                <input formControlName="ReasonForSeekingHelpDesc" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -528,7 +528,7 @@
 
                             <div class="form-group">
                                 <label for="CenterId">If others, please specify </label>
-                                <input [formControl]="category4Form.controls['WhoIsAbusingYouDesc']" class="form-control" />
+                                <input formControlName="WhoIsAbusingYouDesc" class="form-control" />
                             </div>
 
                         </div>
@@ -551,7 +551,7 @@
 
                             <div class="form-group">
                                 <label for="CenterId">If no, please specify</label>
-                                <input [formControl]="category4Form.controls['SufferingFromAbuseDesc']" class="form-control" />
+                                <input formControlName="SufferingFromAbuseDesc" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -595,7 +595,7 @@
 
                             <div class="form-group">
                                 <label for="CenterId">Please specify</label>
-                                <input [formControl]="category4Form.controls['SignsOfPhysicalAbuseDesc']" class="form-control" />
+                                <input formControlName="SignsOfPhysicalAbuseDesc" class="form-control" />
                             </div>
 
                             <div class="form-group">
@@ -678,7 +678,7 @@
                             <div class="form-group">
                                 <label for="CenterId">Number of years sexual abuse has been occurring *</label>
                                 <div class="form-group" [class.has-danger]="category4Form.controls['NumberOfYearsOfSexualAbuse'].invalid && category4Form.controls['NumberOfYearsOfSexualAbuse'].touched">
-                                    <input type="number" id="NumberOfYearsOfSexualAbuse" [formControl]="category4Form.controls['NumberOfYearsOfSexualAbuse']" class="form-control" />
+                                    <input type="number" id="NumberOfYearsOfSexualAbuse" formControlName="NumberOfYearsOfSexualAbuse" class="form-control" />
                                     <small *ngIf="category4Form.controls['NumberOfYearsOfSexualAbuse'].touched && category4Form.controls['NumberOfYearsOfSexualAbuse'].invalid">
                                         Value should be between 0 and 99
                                     </small>
@@ -707,7 +707,7 @@
                             <div class="form-group">
                                 <label for="CenterId">Number of years economic abuse has been occurring *</label>
                                 <div class="form-group" [class.has-danger]="category4Form.controls['NumberOfYearsOfEconomicAbuse'].invalid && category4Form.controls['NumberOfYearsOfEconomicAbuse'].touched">
-                                    <input type="number" id="NumberOfYearsOfEconomicAbuse" [formControl]="category4Form.controls['NumberOfYearsOfEconomicAbuse']" class="form-control" />
+                                    <input type="number" id="NumberOfYearsOfEconomicAbuse" formControlName="NumberOfYearsOfEconomicAbuse" class="form-control" />
                                     <small *ngIf="category4Form.controls['NumberOfYearsOfEconomicAbuse'].touched && category4Form.controls['NumberOfYearsOfEconomicAbuse'].invalid">
                                         Value should be between 0 and 99
                                     </small>
@@ -726,7 +726,7 @@
 
                             <div class="form-group">
                                 <label for="CenterId">If other, please specify</label>
-                                <input [formControl]="category4Form.controls['ReasonForAbuseDesc']" class="form-control" />
+                                <input formControlName="ReasonForAbuseDesc" class="form-control" />
                             </div>
 
                         </div>
@@ -741,7 +741,7 @@
 
                                 <div class="form-group">
                                     <label for="CaseSubject">Subject *</label>
-                                    <input [formControl]="category4Form.controls['CaseSubject']" class="form-control" maxlength="2000" />
+                                    <input formControlName="CaseSubject" class="form-control" maxlength="2000" />
                                     <div>
                                         <small *ngIf="category4Form.controls['CaseSubject'].hasError('required') && category4Form.controls['CaseSubject'].touched" class="mat-text-warn">Case Status is required.</small>
                                     </div>
@@ -749,7 +749,7 @@
 
                                 <div class="form-group">
                                     <label for="CaseDescription">Description *</label>
-                                    <textarea [formControl]="category4Form.controls['CaseDescription']" class="form-control" maxlength="2000"></textarea>
+                                    <textarea formControlName="CaseDescription" class="form-control" maxlength="2000"></textarea>
                                     <div>
                                         <small *ngIf="category4Form.controls['CaseDescription'].hasError('required') && category4Form.controls['CaseDescription'].touched" class="mat-text-warn">Case Status is required.</small>
                                     </div>
@@ -766,7 +766,7 @@
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">If other, please specify</label>
-                                    <input [formControl]="category4Form.controls['SourceOfCaseDesc']" class="form-control" maxlength="2000" />
+                                    <input formControlName="SourceOfCaseDesc" class="form-control" maxlength="2000" />
                                 </div>
 
                                 <div class="form-group">
@@ -781,7 +781,7 @@
                                 <div class="form-group">
                                     <div class="form-group" [class.has-danger]="category4Form.controls['TotalNoOfSessionsLookupId'].invalid && category4Form.controls['TotalNoOfSessionsLookupId'].touched">
                                         <label for="CenterId">Total no of sessions *</label>
-                                        <input type="number" id="TotalNoOfSessionsLookupId" [formControl]="category4Form.controls['TotalNoOfSessionsLookupId']" class="form-control" />
+                                        <input type="number" id="TotalNoOfSessionsLookupId" formControlName="TotalNoOfSessionsLookupId" class="form-control" />
                                         <small *ngIf="category4Form.controls['TotalNoOfSessionsLookupId'].touched && category4Form.controls['TotalNoOfSessionsLookupId'].invalid">
                                             Value should be between 0 and 99
                                         </small>
@@ -791,7 +791,7 @@
                                 <div class="form-group">
                                     <div class="form-group" [class.has-danger]="category4Form.controls['TotalHoursSpentLookupId'].invalid && category4Form.controls['TotalHoursSpentLookupId'].touched">
                                         <label for="CenterId">Total hours spent *</label>
-                                        <input type="number" id="TotalHoursSpentLookupId" [formControl]="category4Form.controls['TotalHoursSpentLookupId']" class="form-control" />
+                                        <input type="number" id="TotalHoursSpentLookupId" formControlName="TotalHoursSpentLookupId" class="form-control" />
                                         <small *ngIf="category4Form.controls['TotalHoursSpentLookupId'].touched && category4Form.controls['TotalHoursSpentLookupId'].invalid">
                                             Value should be between 0 and 99
                                         </small>
@@ -820,7 +820,7 @@
                             <div class="card-block">
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Case Number as per court *</label>
-                                    <input [formControl]="category5Form.controls['CaseNumber']" class="form-control" />
+                                    <input formControlName="CaseNumber" class="form-control" />
                                     <div>
                                         <small *ngIf="category5Form.controls['CaseNumber'].hasError('required') && category5Form.controls['CaseNumber'].touched" class="mat-text-warn">Field is required.</small>
                                     </div>
@@ -828,7 +828,7 @@
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Court *</label>
-                                    <input [formControl]="category5Form.controls['Court']" class="form-control" />
+                                    <input formControlName="Court" class="form-control" />
                                     <div>
                                         <small *ngIf="category5Form.controls['Court'].hasError('required') && category5Form.controls['Court'].touched" class="mat-text-warn">Field is required.</small>
                                     </div>
@@ -836,7 +836,7 @@
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Prayer *</label>
-                                    <input [formControl]="category5Form.controls['Prayer']" class="form-control" />
+                                    <input formControlName="Prayer" class="form-control" />
                                     <div>
                                         <small *ngIf="category5Form.controls['Prayer'].hasError('required') && category5Form.controls['Prayer'].touched" class="mat-text-warn">Field is required.</small>
                                     </div>
@@ -844,7 +844,7 @@
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Name of legal representative *</label>
-                                    <input [formControl]="category5Form.controls['LegalRepresentative']" class="form-control" />
+                                    <input formControlName="LegalRepresentative" class="form-control" />
                                     <div>
                                         <small *ngIf="category5Form.controls['LegalRepresentative'].hasError('required') && category5Form.controls['LegalRepresentative'].touched" class="mat-text-warn">Field is required.</small>
                                     </div>

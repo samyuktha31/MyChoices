@@ -44,7 +44,7 @@
                                     <label for="CenterId">Center *</label>
                                     <ng-select [options]="centerOptionList"
                                                placeholder="Select Center"
-                                               [formControl]="casePrimaryForm.controls['CenterId']"
+                                               formControlName="CenterId"
                                                (selected)="onCenterSelected($event)"
                                                [allowClear]="true">
                                     </ng-select>
@@ -57,7 +57,7 @@
                                     <label for="CenterId">Peace Maker *</label>
                                     <ng-select [options]="peaceMakerOptionsList"
                                                placeholder="Select Peace Maker"
-                                               [formControl]="casePrimaryForm.controls['PeaceMakerId']"
+                                               formControlName="PeaceMakerId"
                                                [allowClear]="true">
                                     </ng-select>
                                     <div>
@@ -69,7 +69,7 @@
                                     <label for="CenterId">Counselor *</label>
                                     <ng-select [options]="counselorOptionsList"
                                                placeholder="Select Peace Maker"
-                                               [formControl]="casePrimaryForm.controls['CounselorId']"
+                                               formControlName="CounselorId"
                                                [allowClear]="true">
                                     </ng-select>
                                     <div>
@@ -79,7 +79,7 @@
 
                                 <div class="form-group">
                                     <label for="PeacemakerId">First Name *</label>
-                                    <input placeholder="First Name" [formControl]="casePrimaryForm.controls['ClientFirstName']" [(ngModel)]="caseBook.Case.ClientFirstName" class="form-control" />
+                                    <input placeholder="First Name" formControlName="ClientFirstName" [(ngModel)]="caseBook.Case.ClientFirstName" class="form-control" />
                                     <div>
                                         <small *ngIf="casePrimaryForm.controls['ClientFirstName'].hasError('required') && casePrimaryForm.controls['ClientFirstName'].touched" class="mat-text-warn">First Name is required.</small>
                                     </div>
@@ -87,7 +87,7 @@
 
                                 <div class="form-group">
                                     <label for="PeacemakerId">Last Name *</label>
-                                    <input placeholder="Last Name" [formControl]="casePrimaryForm.controls['ClientLastName']" [(ngModel)]="caseBook.Case.ClientLastName" class="form-control" />
+                                    <input placeholder="Last Name" formControlName="ClientLastName" [(ngModel)]="caseBook.Case.ClientLastName" class="form-control" />
                                     <div>
                                         <small *ngIf="casePrimaryForm.controls['ClientLastName'].hasError('required') && casePrimaryForm.controls['ClientLastName'].touched" class="mat-text-warn">Last Name is required.</small>
                                     </div>
@@ -95,12 +95,12 @@
 
                                 <div class="form-group">
                                     <label for="PeacemakerId">M.I.</label>
-                                    <textarea placeholder="Middle Initials" [formControl]="casePrimaryForm.controls['Mi']" [(ngModel)]="caseBook.Case.Mi" class="form-control" maxlength="2000"></textarea>
+                                    <textarea placeholder="Middle Initials" formControlName="Mi" [(ngModel)]="caseBook.Case.Mi" class="form-control" maxlength="2000"></textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeacemakerId">Father / Husband Name *</label>
-                                    <input placeholder="Father / Husband Name" [formControl]="casePrimaryForm.controls['FatherName']" [(ngModel)]="caseBook.Case.FatherName" class="form-control" />
+                                    <input placeholder="Father / Husband Name" formControlName="FatherName" [(ngModel)]="caseBook.Case.FatherName" class="form-control" />
                                     <div>
                                         <small *ngIf="casePrimaryForm.controls['FatherName'].hasError('required') && casePrimaryForm.controls['FatherName'].touched" class="mat-text-warn">Father / Husband Name is required.</small>
                                     </div>
@@ -120,7 +120,7 @@
                                 <div class="form-group">
                                     <label for="PeacemakerId">Mobile *</label>
                                     <div class="form-group" [class.has-danger]="casePrimaryForm.controls['MobileNumber'].invalid && casePrimaryForm.controls['MobileNumber'].touched">
-                                        <input placeholder="Mobile" [formControl]="casePrimaryForm.controls['MobileNumber']" class="form-control" digits maxlength="14"/>
+                                        <input placeholder="Mobile" formControlName="MobileNumber" class="form-control" digits maxlength="14"/>
                                         <div>
                                             <small *ngIf="casePrimaryForm.controls['MobileNumber'].hasError('required') && casePrimaryForm.controls['MobileNumber'].touched">Mobile is required.</small>
                                             <small *ngIf="casePrimaryForm.controls['MobileNumber'].dirty && casePrimaryForm.controls['MobileNumber'].invalid">Please provide a valid Mobile Number</small>
@@ -132,7 +132,7 @@
                                     <label for="CenterId">Gender *</label>
                                     <ng-select [options]="genderLookupOptionsList"
                                                placeholder="Select Gender"
-                                               [formControl]="casePrimaryForm.controls['GenderLookupId']"
+                                               formControlName="GenderLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                     <div>
@@ -144,7 +144,7 @@
                                     <label for="CenterId">Marital Status *</label>
                                     <ng-select [options]="maritalStatusLookupOptionsList"
                                                placeholder="Select Marital Status"
-                                               [formControl]="casePrimaryForm.controls['MaritalStatusLookupId']"
+                                               formControlName="MaritalStatusLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                     <div>
@@ -156,7 +156,7 @@
                                     <label for="CenterId">Required Assistance *</label>
                                     <ng-select [options]="requireAssistanceLookupOptionsList"
                                                placeholder="Required Assistance"
-                                               [formControl]="casePrimaryForm.controls['RequireAssistanceLookupId']"
+                                               formControlName="RequireAssistanceLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                     <div>
@@ -166,7 +166,7 @@
 
                                 <div class="form-group">
                                     <label for="PeacemakerId">Remarks</label>
-                                    <textarea placeholder="Remarks" [formControl]="casePrimaryForm.controls['Remarks']" class="form-control" maxlength="300"></textarea>
+                                    <textarea placeholder="Remarks" formControlName="Remarks" class="form-control" maxlength="300"></textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -264,7 +264,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Any children deceased/miscarried/aborted?</label>
                                     <ss-multiselect-dropdown [options]="childrenDeceasedLookupOptionsList"
-                                                             [formControl]="clientAndHouseholdForm.controls['ChildrenDeceasedLookupId']"
+                                                             formControlName="ChildrenDeceasedLookupId"
                                                              [(ngModel)]="caseBook.FamilyHouseHold.ChildrenDeceasedLookupArray">
 
                                     </ss-multiselect-dropdown>
@@ -274,7 +274,7 @@
                                     <label for="CenterId">Household income</label>
                                     <ng-select [options]="incomeLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="clientAndHouseholdForm.controls['HouseHoldIncomeLookupId']"
+                                               formControlName="HouseHoldIncomeLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -283,25 +283,25 @@
                                     <label for="CenterId">Have you sought help for your issues before coming to My Choices?</label>
                                     <ng-select [options]="yesNoOptionsList"
                                                placeholder="Select"
-                                               [formControl]="clientAndHouseholdForm.controls['SoughtHelpYesNoLookupId']"
+                                               formControlName="SoughtHelpYesNoLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">yes, specify</label>
-                                    <input [formControl]="clientAndHouseholdForm.controls['SoughtHelpDesc']" class="form-control" />
+                                    <input formControlName="SoughtHelpDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, what was the outcome of that help?</label>
-                                    <input [formControl]="clientAndHouseholdForm.controls['SoughtHelpOutPut']" class="form-control" />
+                                    <input formControlName="SoughtHelpOutPut" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If you would like Operation Peacemaker to assist you with your current domestic violence situation, please select the services you would make use of</label>
                                     <ss-multiselect-dropdown [options]="peacemakerAssistanceOptionsList"
-                                                             [formControl]="clientAndHouseholdForm.controls['PeacemakerAssistanceLookupId']"
+                                                             formControlName="PeacemakerAssistanceLookupId"
                                                              [(ngModel)]="caseBook.FamilyHouseHold.PeacemakerAssistanceLookupArray">
 
                                     </ss-multiselect-dropdown>
@@ -309,7 +309,7 @@
 
                                 <div class="form-group">
                                     <label for="CenterId">If other, please specify</label>
-                                    <input [formControl]="clientAndHouseholdForm.controls['PeacemakerAssistanceDesc']" class="form-control" />
+                                    <input formControlName="PeacemakerAssistanceDesc" class="form-control" />
                                 </div>
 
                             </div>
@@ -327,7 +327,7 @@
                                     <label for="CenterId">Would you like a Peacemaker to do follow up with you?</label>
                                     <ng-select [options]="yesNoOptionsList"
                                                placeholder="Select"
-                                               [formControl]="clientAndHouseholdForm.controls['PeacemakerFollowupYesNoLookupId']"
+                                               formControlName="PeacemakerFollowupYesNoLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -336,7 +336,7 @@
                                     <label for="CenterId">Did the client sign the registration form?</label>
                                     <ng-select [options]="yesNoOptionsList"
                                                placeholder="Select"
-                                               [formControl]="clientAndHouseholdForm.controls['ClientSignedRegistrationFormYesNoLookupId']"
+                                               formControlName="ClientSignedRegistrationFormYesNoLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -344,7 +344,7 @@
                                 <div class="form-group">
                                     <div class="form-group" [class.has-danger]="clientAndHouseholdForm.controls['ClientEmailId'].invalid && clientAndHouseholdForm.controls['ClientEmailId'].touched">
                                         <label for="PeaceMakerId">Client's Email</label>
-                                        <input type="email" id="ClientEmailId" [formControl]="clientAndHouseholdForm.controls['ClientEmailId']" inputmode="email" class="form-control"/>
+                                        <input type="email" id="ClientEmailId" formControlName="ClientEmailId" inputmode="email" class="form-control"/>
                                         <small *ngIf="clientAndHouseholdForm.controls['ClientEmailId'].dirty && clientAndHouseholdForm.controls['ClientEmailId'].invalid">                                            
                                             Please provide a valid email
                                         </small>
@@ -355,7 +355,7 @@
                                     <label for="PeaceMakerId">Religion</label>
                                     <ng-select [options]="religionOptionsList"
                                                placeholder="Select"
-                                               [formControl]="clientAndHouseholdForm.controls['ReligionLookupId']"
+                                               formControlName="ReligionLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -364,7 +364,7 @@
                                     <label for="PeaceMakerId">Level of education</label>
                                     <ng-select [options]="levelOfEducationOptionsList"
                                                placeholder="Select"
-                                               [formControl]="clientAndHouseholdForm.controls['LevelOfEducationLookupId']"
+                                               formControlName="LevelOfEducationLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -373,14 +373,14 @@
                                     <label for="PeaceMakerId">Vocational skills</label>
                                     <ng-select [options]="vocationalSkillsOptionsList"
                                                placeholder="Select"
-                                               [formControl]="clientAndHouseholdForm.controls['VocationalSkillsLookupId']"
+                                               formControlName="VocationalSkillsLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">If other Vocational skills, please specify:</label>
-                                    <input [formControl]="clientAndHouseholdForm.controls['VocationalSkillsDesc']" class="form-control" />
+                                    <input formControlName="VocationalSkillsDesc" class="form-control" />
                                 </div>
 
 
@@ -399,21 +399,21 @@
                                     <label for="PeaceMakerId">Occupation</label>
                                     <ng-select [options]="occupationOptionsList"
                                                placeholder="Select"
-                                               [formControl]="clientAndHouseholdForm.controls['OccupationLookupId']"
+                                               formControlName="OccupationLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">If self-employed or employed, please specify:</label>
-                                    <input [formControl]="clientAndHouseholdForm.controls['OccupationDesc']" class="form-control" />
+                                    <input formControlName="OccupationDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Client Income</label>
                                     <ng-select [options]="incomeLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="clientAndHouseholdForm.controls['ClientIncomeLookupId']"
+                                               formControlName="ClientIncomeLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -421,7 +421,7 @@
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Household members living in same house</label>
                                     <ss-multiselect-dropdown [options]="householdMembersOptionsList"
-                                                             [formControl]="clientAndHouseholdForm.controls['HouseHoldMembersLivingLookupId']"
+                                                             formControlName="HouseHoldMembersLivingLookupId"
                                                              [(ngModel)]="caseBook.FamilyHouseHold.HouseHoldMembersLivingLookupArray">
                                     </ss-multiselect-dropdown>
                                 </div>
@@ -429,7 +429,7 @@
                                 <div class="form-group">
                                     <div class="form-group" [class.has-danger]="clientAndHouseholdForm.controls['YearOfMarriage'].invalid && clientAndHouseholdForm.controls['YearOfMarriage'].touched">
                                         <label for="PeaceMakerId">Years of marriage</label>
-                                        <input [formControl]="clientAndHouseholdForm.controls['YearOfMarriage']" digits maxlength="2" class="form-control" />
+                                        <input formControlName="YearOfMarriage" digits maxlength="2" class="form-control" />
                                         <small *ngIf="clientAndHouseholdForm.controls['YearOfMarriage'].dirty && clientAndHouseholdForm.controls['YearOfMarriage'].invalid">
                                             Please provide valid years of marriage
                                         </small>
@@ -438,7 +438,7 @@
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">At what age did client have her first child?</label>
-                                    <input [formControl]="clientAndHouseholdForm.controls['ClientAgeAtFirstChild']" digits maxlength="2" class="form-control" />
+                                    <input formControlName="ClientAgeAtFirstChild" digits maxlength="2" class="form-control" />
                                     <small *ngIf="clientAndHouseholdForm.controls['ClientAgeAtFirstChild'].dirty && clientAndHouseholdForm.controls['ClientAgeAtFirstChild'].invalid">
                                         Please provide a valid age
                                     </small>
@@ -469,13 +469,13 @@
 
                                 <div class="form-group">
                                     <label for="CenterId">Spouse Name</label>
-                                    <input [formControl]="spouseForm.controls['SpouseName']" maxlength="30" class="form-control" />
+                                    <input formControlName="SpouseName" maxlength="30" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Spouse Home phone</label>
                                     <div class="form-group" [class.has-danger]="spouseForm.controls['SpouseHomePhone'].invalid && spouseForm.controls['SpouseHomePhone'].touched">
-                                        <input [formControl]="spouseForm.controls['SpouseHomePhone']" digits maxlength="14" class="form-control" />
+                                        <input formControlName="SpouseHomePhone" digits maxlength="14" class="form-control" />
                                         <div>
                                             <small *ngIf="spouseForm.controls['SpouseHomePhone'].dirty && spouseForm.controls['SpouseHomePhone'].invalid">Please provide a valid Phone</small>
                                         </div>
@@ -485,7 +485,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Spouse Mobile phone</label>
                                     <div class="form-group" [class.has-danger]="spouseForm.controls['SpouseMobilePhone'].invalid && spouseForm.controls['SpouseMobilePhone'].touched">
-                                        <input [formControl]="spouseForm.controls['SpouseMobilePhone']" digits maxlength="14" class="form-control" />
+                                        <input formControlName="SpouseMobilePhone" digits maxlength="14" class="form-control" />
                                         <div>
                                             <small *ngIf="spouseForm.controls['SpouseMobilePhone'].dirty && spouseForm.controls['SpouseMobilePhone'].invalid">Please provide a valid Mobile</small>
                                         </div>
@@ -494,14 +494,14 @@
 
                                 <div class="form-group">
                                     <label for="CenterId">Spouse Occupation</label>
-                                    <input [formControl]="spouseForm.controls['SpouseOccupation']" maxlength="30" class="form-control" />
+                                    <input formControlName="SpouseOccupation" maxlength="30" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Spouse Education</label>
                                     <ng-select [options]="spouseEducationLookupIdLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="spouseForm.controls['SpouseEducationLookupId']"
+                                               formControlName="SpouseEducationLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -521,19 +521,19 @@
                             <div class="card-block">
                                 <div class="form-group">
                                     <label for="CenterId">Spouse's full address</label>
-                                    <textarea type="text" [formControl]="spouseForm.controls['SpouseAddress']" class="form-control" maxlength="300"></textarea>
+                                    <textarea type="text" formControlName="SpouseAddress" class="form-control" maxlength="300"></textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Area</label>
-                                    <input [formControl]="spouseForm.controls['Area']" maxlength="50" class="form-control" />
+                                    <input formControlName="Area" maxlength="50" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">State</label>
                                     <ng-select [options]="spouseStateOptionsList"
                                                placeholder="Select State"
-                                               [formControl]="spouseForm.controls['StateLookupId']"
+                                               formControlName="StateLookupId"
                                                (selected)="onSpouseStateSelected($event)"
                                                [allowClear]="true">
                                     </ng-select>
@@ -543,7 +543,7 @@
                                     <label for="CenterId">City</label>
                                     <ng-select [options]="spouseCityOptionsList"
                                                placeholder="Select"
-                                               [formControl]="spouseForm.controls['CityLookupId']"
+                                               formControlName="CityLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -551,7 +551,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">PIN</label>
                                     <div class="form-group" [class.has-danger]="spouseForm.controls['PIN'].invalid && spouseForm.controls['PIN'].touched">
-                                        <input [formControl]="spouseForm.controls['PIN']" digits maxlength="6" class="form-control" />
+                                        <input formControlName="PIN" digits maxlength="6" class="form-control" />
                                         <div>
                                             <small *ngIf="spouseForm.controls['PIN'].dirty && spouseForm.controls['PIN'].invalid">Please provide a valid PIN</small>
                                         </div>
@@ -573,14 +573,14 @@
                             <div class="card-block">
                                 <div class="form-group">
                                     <label for="CenterId">Primary Emergency Contact Name</label>
-                                    <input [formControl]="spouseForm.controls['PrimaryEmergencyContactName']" class="form-control" />
+                                    <input formControlName="PrimaryEmergencyContactName" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Relationship to client</label>
                                     <ng-select [options]="emergencyRelationshipOptionsList"
                                                placeholder="Select"
-                                               [formControl]="spouseForm.controls['PrimaryEmergencyRelationshipToClientLookupId']"
+                                               formControlName="PrimaryEmergencyRelationshipToClientLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -588,7 +588,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Phone number</label>
                                     <div class="form-group" [class.has-danger]="spouseForm.controls['PrimaryEmergencyContactPhoneNumber'].invalid && spouseForm.controls['PrimaryEmergencyContactPhoneNumber'].touched">
-                                        <input [formControl]="spouseForm.controls['PrimaryEmergencyContactPhoneNumber']" digits maxlength="14" class="form-control" />
+                                        <input formControlName="PrimaryEmergencyContactPhoneNumber" digits maxlength="14" class="form-control" />
                                         <div>
                                             <small *ngIf="spouseForm.controls['PrimaryEmergencyContactPhoneNumber'].dirty && spouseForm.controls['PrimaryEmergencyContactPhoneNumber'].invalid">Please provide a valid Phone number</small>
                                         </div>
@@ -597,19 +597,19 @@
 
                                 <div class="form-group">
                                     <label for="CenterId">Address</label>
-                                    <input [formControl]="spouseForm.controls['PrimaryEmergencyContactAdress']" class="form-control" />
+                                    <input formControlName="PrimaryEmergencyContactAdress" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Secondary Emergency Contact Name</label>
-                                    <input [formControl]="spouseForm.controls['SecondaryEmergencyContactName']" class="form-control" />
+                                    <input formControlName="SecondaryEmergencyContactName" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Relationship to client</label>
                                     <ng-select [options]="emergencyRelationshipOptionsList"
                                                placeholder="Select"
-                                               [formControl]="spouseForm.controls['SecondaryEmergencyRelationshipToClientLookupId']"
+                                               formControlName="SecondaryEmergencyRelationshipToClientLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -617,7 +617,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Phone number</label>
                                     <div class="form-group" [class.has-danger]="spouseForm.controls['SecondaryEmergencyContactPhoneNumber'].invalid && spouseForm.controls['SecondaryEmergencyContactPhoneNumber'].touched">
-                                        <input [formControl]="spouseForm.controls['SecondaryEmergencyContactPhoneNumber']" digits maxlength="14" class="form-control" />
+                                        <input formControlName="SecondaryEmergencyContactPhoneNumber" digits maxlength="14" class="form-control" />
                                         <div>
                                             <small *ngIf="spouseForm.controls['SecondaryEmergencyContactPhoneNumber'].dirty && spouseForm.controls['SecondaryEmergencyContactPhoneNumber'].invalid">Please provide a valid Phone number</small>
                                         </div>
@@ -626,7 +626,7 @@
 
                                 <div class="form-group">
                                     <label for="CenterId">Address</label>
-                                    <input [formControl]="spouseForm.controls['PrimaryEmergencyContactAdress']" class="form-control" />
+                                    <input formControlName="PrimaryEmergencyContactAdress" class="form-control" />
                                 </div>
 
                             </div>
@@ -651,35 +651,35 @@
                                     <label for="CenterId">Are you suffering from any major illness?</label>
                                     <ng-select [options]="yesNoOptionsList"
                                                placeholder="Select"
-                                               [formControl]="physicalHealthForm.controls['SufferingFromAnyMajorIllnessLookupId']"
+                                               formControlName="SufferingFromAnyMajorIllnessLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, please specify:?</label>
-                                    <input [formControl]="physicalHealthForm.controls['SufferingFromAnyMajorIllnessDesc']" class="form-control" />
+                                    <input formControlName="SufferingFromAnyMajorIllnessDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Do you have any diagnosed psychiatric illness?</label>
                                     <ng-select [options]="yesNoOptionsList"
                                                placeholder="Select"
-                                               [formControl]="physicalHealthForm.controls['DiagnosedPsychiatricIllnessLookupId']"
+                                               formControlName="DiagnosedPsychiatricIllnessLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, please specify:?</label>
-                                    <input [formControl]="physicalHealthForm.controls['DiagnosedPsychiatricIllnessDesc']" class="form-control" />
+                                    <input formControlName="DiagnosedPsychiatricIllnessDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">How much do you sleep per night?</label>
                                     <ng-select [options]="sleepPerNightLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="physicalHealthForm.controls['SleepPerNightLookupId']"
+                                               formControlName="SleepPerNightLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -689,7 +689,7 @@
                                     <label for="CenterId">How is your appetite?</label>
                                     <ng-select [options]="appetiteLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="physicalHealthForm.controls['AppetiteLookupId']"
+                                               formControlName="AppetiteLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -698,7 +698,7 @@
                                     <label for="CenterId">Do you exercise?</label>
                                     <ng-select [options]="exerciseLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="physicalHealthForm.controls['ExerciseLookupId']"
+                                               formControlName="ExerciseLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -707,14 +707,14 @@
                                     <label for="CenterId">Are you on any medication?</label>
                                     <ng-select [options]="yesNoOptionsList"
                                                placeholder="Select"
-                                               [formControl]="physicalHealthForm.controls['AnyMedicationLookupId']"
+                                               formControlName="AnyMedicationLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, what medication:?</label>
-                                    <input [formControl]="physicalHealthForm.controls['AnyMedicationDesc']" class="form-control" />
+                                    <input formControlName="AnyMedicationDesc" class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -731,54 +731,54 @@
                                     <label for="CenterId">Are you on any substance?</label>
                                     <ng-select [options]="yesNoOptionsList"
                                                placeholder="Select"
-                                               [formControl]="physicalHealthForm.controls['AnySubstanceLookupId']"
+                                               formControlName="AnySubstanceLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Please specify:</label>
-                                    <input [formControl]="physicalHealthForm.controls['AnySubstanceDesc']" class="form-control" />
+                                    <input formControlName="AnySubstanceDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Are you currently pregnant?</label>
                                     <ng-select [options]="yesNoOptionsList"
                                                placeholder="Select"
-                                               [formControl]="physicalHealthForm.controls['CurrentlyPregnantLookup']"
+                                               formControlName="CurrentlyPregnantLookup"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, give details:</label>
-                                    <input [formControl]="physicalHealthForm.controls['CurrentlyPregnantDesc']" class="form-control" />
+                                    <input formControlName="CurrentlyPregnantDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">What is the reason for seeking help?</label>
                                     <ss-multiselect-dropdown [options]="reasonForSeekingHelpLookupOptionsList"
-                                                            [formControl]="physicalHealthForm.controls['ReasonForSeekingHelpLookupId']"
+                                                            formControlName="ReasonForSeekingHelpLookupId"
                                                              [(ngModel)]="caseBook.PhysicalHealth.ReasonForSeekingHelpLookupArray">
                                     </ss-multiselect-dropdown>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If other, please specify</label>
-                                    <input [formControl]="physicalHealthForm.controls['ReasonForSeekingHelpDesc']" class="form-control" />
+                                    <input formControlName="ReasonForSeekingHelpDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Who is abusing you?</label>
                                     <ss-multiselect-dropdown [options]="whoIsAbusingYouLookupOptionsList"
-                                                             [formControl]="physicalHealthForm.controls['WhoIsAbusingYouLookupId']"
+                                                             formControlName="WhoIsAbusingYouLookupId"
                                                              [(ngModel)]="caseBook.PhysicalHealth.WhoIsAbusingYouLookupArray">
                                     </ss-multiselect-dropdown>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If others, please specify </label>
-                                    <input [formControl]="physicalHealthForm.controls['WhoIsAbusingYouDesc']" class="form-control" />
+                                    <input formControlName="WhoIsAbusingYouDesc" class="form-control" />
                                 </div>                                
 
                                 <div class="form-group">
@@ -845,20 +845,20 @@
                                     <label for="CenterId">Do you think you are suffering from abuse?</label>
                                     <ng-select [options]="sufferingFromAbuseLookupIdLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="caseAbuseForm.controls['SufferingFromAbuseLookupId']"
+                                               formControlName="SufferingFromAbuseLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If no, please specify</label>
-                                    <input [formControl]="caseAbuseForm.controls['SufferingFromAbuseDesc']" class="form-control" />
+                                    <input formControlName="SufferingFromAbuseDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, how do you feel about the abuse?</label>
                                     <ss-multiselect-dropdown [options]="feelAboutAbuseLookupOptionsList"
-                                                             [formControl]="caseAbuseForm.controls['FeelAboutAbuseLookupId']"
+                                                             formControlName="FeelAboutAbuseLookupId"
                                                              [(ngModel)]="caseBook.Abuse.FeelAboutAbuseLookupArray">
 
                                     </ss-multiselect-dropdown>
@@ -867,7 +867,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">How do your parents feel about the abuse?</label>
                                     <ss-multiselect-dropdown [options]="farentsFeelAboutAbuseLookupOptionsList"
-                                                             [formControl]="caseAbuseForm.controls['ParentsFeelAboutAbuseLookupId']"
+                                                             formControlName="ParentsFeelAboutAbuseLookupId"
                                                              [(ngModel)]="caseBook.Abuse.ParentsFeelAboutAbuseLookupArray">
 
                                     </ss-multiselect-dropdown>
@@ -876,7 +876,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">How do your in laws feel about the abuse?</label>
                                     <ss-multiselect-dropdown [options]="lawFeelAboutAbuseLookupOptionsList"
-                                                             [formControl]="caseAbuseForm.controls['LawFeelAboutAbuseLookupId']"
+                                                             formControlName="LawFeelAboutAbuseLookupId"
                                                              [(ngModel)]="caseBook.Abuse.LawFeelAboutAbuseLookupArray">
 
                                     </ss-multiselect-dropdown>
@@ -886,27 +886,27 @@
                                     <label for="CenterId">Are there any signs of physical abuse? </label>
                                     <ng-select [options]="signsOfPhysicalAbuseLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="caseAbuseForm.controls['SignsOfPhysicalAbuseLookupId']"
+                                               formControlName="SignsOfPhysicalAbuseLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">If yes, Please specify</label>
-                                    <input [formControl]="caseAbuseForm.controls['SignsOfPhysicalAbuseDesc']" class="form-control" />
+                                    <input formControlName="SignsOfPhysicalAbuseDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Weapons used by abuser on victim</label>
                                     <ss-multiselect-dropdown [options]="weaponsUsedLookupOptionsList"
-                                                             [formControl]="caseAbuseForm.controls['WeaponsUsedLookupId']"
+                                                             formControlName="WeaponsUsedLookupId"
                                                              [(ngModel)]="caseBook.Abuse.WeaponsUsedLookupArray">
 
                                     </ss-multiselect-dropdown>
                                 </div>
                                 <div class="form-group">
                                     <label for="CenterId">If others, Please specify</label>
-                                    <input [formControl]="caseAbuseForm.controls['WeaponsUsedDesc']" class="form-control" />
+                                    <input formControlName="WeaponsUsedDesc" class="form-control" />
                                 </div>
                             </div>
 
@@ -922,7 +922,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Types of physical abuse - tick all applicable situations</label>
                                     <ss-multiselect-dropdown [options]="typesOfPhyscialAbuseLookupOptionsList"
-                                                             [formControl]="caseAbuseForm.controls['TypesOfPhyscialAbuseLookupId']"
+                                                             formControlName="TypesOfPhyscialAbuseLookupId"
                                                              [(ngModel)]="caseBook.Abuse.TypesOfPhyscialAbuseLookupArray">
 
                                     </ss-multiselect-dropdown>
@@ -933,7 +933,7 @@
                                     <label for="CenterId">Frequency of physical abuse</label>
                                     <ng-select [options]="frequencyOfPhyscialAbuseLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="caseAbuseForm.controls['FrequencyOfPhyscialAbuseLookupId']"
+                                               formControlName="FrequencyOfPhyscialAbuseLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -941,7 +941,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Number of years physical abuse has been occuring</label>                                    
                                     <div class="form-group" [class.has-danger]="caseAbuseForm.controls['NumberOfYearsOfPhyscialAbuse'].invalid && caseAbuseForm.controls['NumberOfYearsOfPhyscialAbuse'].touched">
-                                        <input type="number" id="NumberOfYearsOfPhyscialAbuse" [formControl]="caseAbuseForm.controls['NumberOfYearsOfPhyscialAbuse']" class="form-control" />
+                                        <input type="number" id="NumberOfYearsOfPhyscialAbuse" formControlName="NumberOfYearsOfPhyscialAbuse" class="form-control" />
                                         <small *ngIf="caseAbuseForm.controls['NumberOfYearsOfPhyscialAbuse'].touched && caseAbuseForm.controls['NumberOfYearsOfPhyscialAbuse'].invalid">
                                             Value should be between 0 and 99
                                         </small>
@@ -951,7 +951,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Types of emotional abuse - tick all applicable situations</label>
                                     <ss-multiselect-dropdown [options]="typesOfEmotionalAbuseLookupOptionsList"
-                                                             [formControl]="caseAbuseForm.controls['TypesOfEmotionalAbuseLookupId']"
+                                                             formControlName="TypesOfEmotionalAbuseLookupId"
                                                              [(ngModel)]="caseBook.Abuse.TypesOfEmotionalAbuseLookupArray">
 
                                     </ss-multiselect-dropdown>
@@ -961,7 +961,7 @@
                                     <label for="CenterId">Frequency of emotional abuse</label>
                                     <ng-select [options]="frequencyOfEmotionalAbuseLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="caseAbuseForm.controls['FrequencyOfEmotionalAbuseLookupId']"
+                                               formControlName="FrequencyOfEmotionalAbuseLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -969,7 +969,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Number of years emotional abuse has been occurring</label>
                                     <div class="form-group" [class.has-danger]="caseAbuseForm.controls['NumberOfYearsOfEmotionalAbuse'].invalid && caseAbuseForm.controls['NumberOfYearsOfEmotionalAbuse'].touched">
-                                        <input type="number" id="NumberOfYearsOfEmotionalAbuse" [formControl]="caseAbuseForm.controls['NumberOfYearsOfEmotionalAbuse']" class="form-control" />
+                                        <input type="number" id="NumberOfYearsOfEmotionalAbuse" formControlName="NumberOfYearsOfEmotionalAbuse" class="form-control" />
                                         <small *ngIf="caseAbuseForm.controls['NumberOfYearsOfEmotionalAbuse'].touched && caseAbuseForm.controls['NumberOfYearsOfEmotionalAbuse'].invalid">
                                             Value should be between 0 and 99
                                         </small>
@@ -979,7 +979,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Types of sexual abuse - tick all applicable situations</label>
                                     <ss-multiselect-dropdown [options]="typesOfSexualAbuseLookupOptionsList"
-                                                             [formControl]="caseAbuseForm.controls['TypesOfSexualAbuseLookupId']"
+                                                             formControlName="TypesOfSexualAbuseLookupId"
                                                              [(ngModel)]="caseBook.Abuse.TypesOfSexualAbuseLookupArray">
 
                                     </ss-multiselect-dropdown>
@@ -989,7 +989,7 @@
                                     <label for="CenterId">Frequency of sexual abuse</label>
                                     <ng-select [options]="frequencyOfSexualAbuseLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="caseAbuseForm.controls['FrequencyOfSexualAbuseLookupId']"
+                                               formControlName="FrequencyOfSexualAbuseLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -999,7 +999,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Number of years sexual abuse has been occurring</label>
                                     <div class="form-group" [class.has-danger]="caseAbuseForm.controls['NumberOfYearsOfSexualAbuse'].invalid && caseAbuseForm.controls['NumberOfYearsOfSexualAbuse'].touched">
-                                        <input type="number" id="NumberOfYearsOfSexualAbuse" [formControl]="caseAbuseForm.controls['NumberOfYearsOfSexualAbuse']" class="form-control" />
+                                        <input type="number" id="NumberOfYearsOfSexualAbuse"formControlName="NumberOfYearsOfSexualAbuse" class="form-control" />
                                         <small *ngIf="caseAbuseForm.controls['NumberOfYearsOfSexualAbuse'].touched && caseAbuseForm.controls['NumberOfYearsOfSexualAbuse'].invalid">
                                             Value should be between 0 and 99
                                         </small>
@@ -1019,7 +1019,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Types of economic abuse - tick all applicable situations</label>
                                     <ss-multiselect-dropdown [options]="typesOfEconomicAbuseLookupOptionsList"
-                                                             [formControl]="caseAbuseForm.controls['TypesOfEconomicAbuseLookupId']"
+                                                             formControlName="TypesOfEconomicAbuseLookupId"
                                                              [(ngModel)]="caseBook.Abuse.TypesOfEconomicAbuseLookupArray">
 
                                     </ss-multiselect-dropdown>
@@ -1029,7 +1029,7 @@
                                     <label for="CenterId">Frequency of economic abuse</label>
                                     <ng-select [options]="frequencyOfEconomicAbuseLookupOptionsList"
                                                placeholder="Select"
-                                               [formControl]="caseAbuseForm.controls['FrequencyOfEconomicAbuseLookupId']"
+                                               formControlName="FrequencyOfEconomicAbuseLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -1037,7 +1037,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Number of years economic abuse has been occurring</label>
                                     <div class="form-group" [class.has-danger]="caseAbuseForm.controls['NumberOfYearsOfEconomicAbuse'].invalid && caseAbuseForm.controls['NumberOfYearsOfEconomicAbuse'].touched">
-                                        <input type="number" id="NumberOfYearsOfEconomicAbuse" [formControl]="caseAbuseForm.controls['NumberOfYearsOfEconomicAbuse']" class="form-control" />
+                                        <input type="number" id="NumberOfYearsOfEconomicAbuse" formControlName="NumberOfYearsOfEconomicAbuse" class="form-control" />
                                         <small *ngIf="caseAbuseForm.controls['NumberOfYearsOfEconomicAbuse'].touched && caseAbuseForm.controls['NumberOfYearsOfEconomicAbuse'].invalid">
                                             Value should be between 0 and 99
                                         </small>
@@ -1047,7 +1047,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Reasons for abuse from abuser side</label>
                                     <ss-multiselect-dropdown [options]="reasonsForAbuseLookupOptionsList"
-                                                             [formControl]="caseAbuseForm.controls['ReasonsForAbuseLookupId']"
+                                                             formControlName="ReasonsForAbuseLookupId"
                                                              [(ngModel)]="caseBook.Abuse.ReasonsForAbuseLookupArray">
 
                                     </ss-multiselect-dropdown>
@@ -1055,7 +1055,7 @@
 
                                 <div class="form-group">
                                     <label for="CenterId">If other, please specify</label>
-                                    <input [formControl]="caseAbuseForm.controls['ReasonForAbuseDesc']" class="form-control" />
+                                    <input formControlName="ReasonForAbuseDesc" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
@@ -1228,29 +1228,29 @@
                             <div class="card-block">
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Case Number as per court</label>
-                                    <input [formControl]="caseLegalForm.controls['CaseNumber']" class="form-control" />
+                                    <input formControlName="CaseNumber" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Court</label>
-                                    <input [formControl]="caseLegalForm.controls['Court']" class="form-control" />
+                                    <input formControlName="Court" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Prayer</label>
-                                    <input [formControl]="caseLegalForm.controls['Prayer']" class="form-control" />
+                                    <input formControlName="Prayer" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Name of legal representative</label>
-                                    <input [formControl]="caseLegalForm.controls['LegalRepresentative']" class="form-control" />
+                                    <input formControlName="LegalRepresentative" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Has the legal consent form been signed and submitted?</label>
                                     <ng-select [options]="yesNoOptionsList"
                                                placeholder="Select"
-                                               [formControl]="caseLegalForm.controls['LegalConsentFormLookupId']"
+                                               formControlName="LegalConsentFormLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -1259,7 +1259,7 @@
                                     <label for="CenterId">Has any legal action been taken by the client in this regard prior to approaching OPM for help?</label>
                                     <ng-select [options]="yesNoOptionsList"
                                                placeholder="Select"
-                                               [formControl]="caseLegalForm.controls['LegalActionLookupId']"
+                                               formControlName="LegalActionLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
@@ -1276,7 +1276,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">Outcome</label>
                                     <ss-multiselect-dropdown [options]="outcomeLookupOptionList"
-                                                             [formControl]="caseLegalForm.controls['OutcomeLookupId']"
+                                                             formControlName="OutcomeLookupId"
                                                              [(ngModel)]="caseBook.Legal.OutcomeLookupArray">
                                     </ss-multiselect-dropdown>
                                 </div>
@@ -1284,7 +1284,7 @@
                                 <div class="form-group">
                                     <label for="CenterId">List all documents that the client has submitted</label>
                                     <ss-multiselect-dropdown [options]="documentsLookupOptionList"
-                                                             [formControl]="caseLegalForm.controls['DocumentsLookupId']"
+                                                             formControlName="DocumentsLookupId"
                                                              [(ngModel)]="caseBook.Legal.DocumentsLookupArray">
                                     </ss-multiselect-dropdown>
 
@@ -1316,34 +1316,34 @@
                                     <label for="CenterId">Status</label>
                                     <ng-select [options]="caseStatusOptionList"
                                                placeholder="Select"
-                                               [formControl]="caseManageForm.controls['CaseStatusId']"
+                                               formControlName="CaseStatusId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">If Referred, please specify referred to whom</label>
-                                    <input [formControl]="caseManageForm.controls['ReferredToWhom']" class="form-control" maxlength="2000" />
+                                    <input formControlName="ReferredToWhom" class="form-control" maxlength="2000" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Source of case</label>
                                     <ng-select [options]="sourceOfCaseLookupOptionList"
                                                placeholder="Select"
-                                               [formControl]="caseManageForm.controls['SourceOfCaseLookupId']"
+                                               formControlName="SourceOfCaseLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">If other, please specify</label>
-                                    <input [formControl]="caseManageForm.controls['SourceOfCaseDesc']" class="form-control" maxlength="2000" />
+                                    <input formControlName="SourceOfCaseDesc" class="form-control" maxlength="2000" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Type of counseling</label>
                                     <ss-multiselect-dropdown [options]="typesOfCounselingLookupOptionList"
-                                                             [formControl]="caseManageForm.controls['TypesOfCounselingLookupId']"
+                                                             formControlName="TypesOfCounselingLookupId"
                                                              [(ngModel)]="caseBook.Manage.TypesOfCounselingLookupArray">
                                     </ss-multiselect-dropdown>
                                 </div>
@@ -1351,7 +1351,7 @@
                                 <div class="form-group">
                                     <div class="form-group" [class.has-danger]="caseManageForm.controls['TotalNoOfSessionsLookupId'].invalid && caseManageForm.controls['TotalNoOfSessionsLookupId'].touched">
                                         <label for="CenterId">Total no of sessions</label>
-                                        <input type="number" id="TotalNoOfSessionsLookupId" [formControl]="caseManageForm.controls['TotalNoOfSessionsLookupId']" class="form-control" />
+                                        <input type="number" id="TotalNoOfSessionsLookupId" formControlName="TotalNoOfSessionsLookupId" class="form-control" />
                                         <small *ngIf="caseManageForm.controls['TotalNoOfSessionsLookupId'].touched && caseManageForm.controls['TotalNoOfSessionsLookupId'].invalid">                                            
                                                 Value should be between 0 & 99 And Non-Fractional.
                                         </small>
@@ -1361,7 +1361,7 @@
                                 <div class="form-group">
                                     <div class="form-group" [class.has-danger]="caseManageForm.controls['TotalHoursSpentLookupId'].invalid && caseManageForm.controls['TotalHoursSpentLookupId'].touched">
                                         <label for="CenterId">Total hours spent</label>
-                                        <input type="number" id="TotalHoursSpentLookupId" [formControl]="caseManageForm.controls['TotalHoursSpentLookupId']" class="form-control" />
+                                        <input type="number" id="TotalHoursSpentLookupId" formControlName="TotalHoursSpentLookupId" class="form-control" />
                                         <small *ngIf="caseManageForm.controls['TotalHoursSpentLookupId'].touched && caseManageForm.controls['TotalHoursSpentLookupId'].invalid">
                                             Value should be between 0 & 99 And two digit precision.  
                                         </small>
@@ -1370,7 +1370,7 @@
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Reason for selected Closure status</label>
-                                    <input [formControl]="caseManageForm.controls['ReasonForClosureStatus']" class="form-control" maxlength="2000" />
+                                    <input formControlName="ReasonForClosureStatus" class="form-control" maxlength="2000" />
                                 </div>
 
 
@@ -1388,26 +1388,26 @@
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Subject</label>
-                                    <input [formControl]="caseManageForm.controls['CaseSubject']" class="form-control" maxlength="2000" />
+                                    <input formControlName="CaseSubject" class="form-control" maxlength="2000" />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="PeaceMakerId">Description</label>
-                                    <textarea [formControl]="caseManageForm.controls['CaseDescription']" class="form-control" maxlength="2000"></textarea>
+                                    <textarea formControlName="CaseDescription" class="form-control" maxlength="2000"></textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Relationship with PM</label>
                                     <ng-select [options]="relationshipWithPMLookupOptionList"
                                                placeholder="Select"
-                                               [formControl]="caseManageForm.controls['RelationshipWithPMLookupId']"
+                                               formControlName="RelationshipWithPMLookupId"
                                                [allowClear]="true">
                                     </ng-select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="CenterId">Case resolution log</label>
-                                    <input [formControl]="caseManageForm.controls['ResolutionLog']" class="form-control" maxlength="2000" />
+                                    <input formControlName="ResolutionLog" class="form-control" maxlength="2000" />
                                 </div>
 
 
@@ -1453,7 +1453,7 @@
 
                                     <div class="form-group">
                                         <label for="PeacemakerId">Address *</label>
-                                        <textarea placeholder="Address" [formControl]="caseAddressForm.controls['Address']" class="form-control" maxlength="300"></textarea>
+                                        <textarea placeholder="Address" formControlName="Address" class="form-control" maxlength="300"></textarea>
                                         <div>
                                             <small *ngIf="caseAddressForm.controls['Address'].hasError('required') && caseAddressForm.controls['Address'].touched" class="mat-text-warn">Fahter / Husband is required.</small>
                                         </div>
@@ -1462,7 +1462,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">PIN *</label>
                                         <div class="form-group" [class.has-danger]="caseAddressForm.controls['PIN'].invalid && caseAddressForm.controls['PIN'].touched">
-                                            <input placeholder="PIN" [formControl]="caseAddressForm.controls['PIN']" class="form-control" digits maxlength="6"/>
+                                            <input placeholder="PIN" formControlName="PIN" class="form-control" digits maxlength="6"/>
                                             <div>
                                                 <small *ngIf="caseAddressForm.controls['PIN'].hasError('required') && caseAddressForm.controls['PIN'].touched">PIN is required.</small>
                                                 <small *ngIf="caseAddressForm.controls['PIN'].dirty && caseAddressForm.controls['PIN'].invalid">Please provide a valid PIN</small>
@@ -1474,7 +1474,7 @@
                                         <label for="PeacemakerId">State *</label>
                                         <ng-select [options]="stateOptionsList"
                                                    placeholder="Select State"
-                                                   [formControl]="caseAddressForm.controls['StateId']"
+                                                   formControlName="StateId"
                                                    (selected)="onStateSelected($event)"
                                                    [allowClear]="true">
                                         </ng-select>
@@ -1487,7 +1487,7 @@
                                         <label for="CityId">City *</label>
                                         <ng-select [options]="cityOptionsList"
                                                    placeholder="Select"
-                                                   [formControl]="caseAddressForm.controls['CityId']"
+                                                   formControlName="CityId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -1497,7 +1497,7 @@
 
                                     <div class="form-group">
                                         <label for="PeacemakerId">Area *</label>
-                                        <input placeholder="Area" [formControl]="caseAddressForm.controls['Area']" class="form-control" />
+                                        <input placeholder="Area" formControlName="Area" class="form-control" />
                                         <div>
                                             <small *ngIf="caseAddressForm.controls['Area'].hasError('required') && caseAddressForm.controls['Area'].touched" class="mat-text-warn">Area is required.</small>
                                         </div>
@@ -1538,7 +1538,7 @@
 
                                     <div class="form-group">
                                         <label for="PeacemakerId">Name *</label>
-                                        <textarea placeholder="Name" [formControl]="caseChildrenForm.controls['Name']" class="form-control"></textarea>
+                                        <textarea placeholder="Name" formControlName="Name" class="form-control"></textarea>
                                         <div>
                                             <small *ngIf="caseChildrenForm.controls['Name'].hasError('required') && caseChildrenForm.controls['Name'].touched" class="mat-text-warn">Name is required.</small>
                                         </div>
@@ -1547,7 +1547,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Age *</label>
                                         <div class="form-group" [class.has-danger]="caseChildrenForm.controls['Age'].invalid && caseChildrenForm.controls['Age'].touched">
-                                            <input type="number" id="Age" [formControl]="caseChildrenForm.controls['Age']" class="form-control" />
+                                            <input type="number" id="Age" formControlName="Age" class="form-control" />
                                             <small *ngIf="caseChildrenForm.controls['Age'].touched && caseChildrenForm.controls['Age'].invalid">
                                                 Value should be between 0 and 99
                                             </small>
@@ -1558,7 +1558,7 @@
                                         <label for="PeacemakerId">Gender *</label>
                                         <ng-select [options]="genderLookupOptionsList"
                                                    placeholder="Select Gender"
-                                                   [formControl]="caseChildrenForm.controls['GenderLookupId']"
+                                                   formControlName="GenderLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -1570,7 +1570,7 @@
                                         <label for="PeacemakerId">Relationship With Abuser *</label>
                                         <ng-select [options]="relationshipWithAbuserLookupOptionsList"
                                                    placeholder="Select Relationship"
-                                                   [formControl]="caseChildrenForm.controls['RelationshipWithAbuserLookupId']"
+                                                   formControlName="RelationshipWithAbuserLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -1613,7 +1613,7 @@
 
                                     <div class="form-group">
                                         <label for="PeacemakerId">Name *</label>
-                                        <textarea placeholder="Name" [formControl]="caseOffenderForm.controls['Name']" class="form-control"></textarea>
+                                        <textarea placeholder="Name" formControlName="Name" class="form-control"></textarea>
                                         <div>
                                             <small *ngIf="caseOffenderForm.controls['Name'].hasError('required') && caseOffenderForm.controls['Name'].touched" class="mat-text-warn">Name is required.</small>
                                         </div>
@@ -1622,7 +1622,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Age *</label>
                                         <div class="form-group" [class.has-danger]="caseOffenderForm.controls['Age'].invalid && caseOffenderForm.controls['Age'].touched">
-                                            <input type="number" id="Age" [formControl]="caseOffenderForm.controls['Age']" class="form-control" />
+                                            <input type="number" id="Age" formControlName="Age" class="form-control" />
                                             <small *ngIf="caseOffenderForm.controls['Age'].touched && caseOffenderForm.controls['Age'].invalid">
                                                 Value should be between 0 and 99
                                             </small>
@@ -1633,7 +1633,7 @@
                                         <label for="PeacemakerId">Gender *</label>
                                         <ng-select [options]="genderLookupOptionsList"
                                                    placeholder="Select Gender"
-                                                   [formControl]="caseOffenderForm.controls['GenderLookupId']"
+                                                   formControlName="GenderLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -1645,7 +1645,7 @@
                                         <label for="PeacemakerId">Relationship With Victim *</label>
                                         <ng-select [options]="relationshipWithVictimLookupOptionsList"
                                                    placeholder="Select Relationship"
-                                                   [formControl]="caseOffenderForm.controls['RelationshipWithVictimLookupId']"
+                                                   formControlName="RelationshipWithVictimLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -1655,7 +1655,7 @@
                                     
                                     <div class="form-group">
                                         <label for="PeacemakerId">If other, please specify</label>
-                                        <textarea placeholder="Other Relationship" [formControl]="caseOffenderForm.controls['OtherRelationship']" class="form-control"></textarea>
+                                        <textarea placeholder="Other Relationship" formControlName="OtherRelationship" class="form-control"></textarea>
                                         
                                     </div>
 
@@ -1695,7 +1695,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Dress</label>
                                         <ss-multiselect-dropdown [options]="MentalDressLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalDressLookupId']"
+                                            formControlName="MentalDressLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalDressLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1703,7 +1703,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Hygiene</label>
                                         <ss-multiselect-dropdown [options]="MentalHygieneLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalHygieneLookupId']"
+                                            formControlName="MentalHygieneLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalHygieneLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1711,7 +1711,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Body Type</label>
                                         <ss-multiselect-dropdown [options]="MentalBodyTypeLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalBodyTypeLookupId']"
+                                            formControlName="MentalBodyTypeLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalBodyTypeLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1719,7 +1719,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Expression</label>
                                         <ss-multiselect-dropdown [options]="MentalExpressionLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalExpressionLookupId']"
+                                            formControlName="MentalExpressionLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalExpressionLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1727,7 +1727,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Motor Activity</label>
                                         <ss-multiselect-dropdown [options]="MentalMotorActivityLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalMotorActivityLookupId']"
+                                            formControlName="MentalMotorActivityLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalMotorActivityLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1735,14 +1735,14 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Vocabulary</label>
                                         <ss-multiselect-dropdown [options]="MentalVocabularyLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalVocabularyLookupId']"
+                                            formControlName="MentalVocabularyLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalVocabularyLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
 
                                     <label for="PeacemakerId">Impulse Control</label>
                                     <ss-multiselect-dropdown [options]="MentalImpulseControlLookupOptionList"
-                                        [formControl]="caseMentalForm.controls['MentalImpulseControlLookupId']"
+                                        formControlName="MentalImpulseControlLookupId"
                                         [(ngModel)]="caseBook.SelectedMental.MentalImpulseControlLookupArray">
                                     </ss-multiselect-dropdown>
                                 </div>
@@ -1759,7 +1759,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Speech</label>
                                         <ss-multiselect-dropdown [options]="MentalSpeechLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalSpeechLookupId']"
+                                            formControlName="MentalSpeechLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalSpeechLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1767,7 +1767,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Behaviour</label>
                                         <ss-multiselect-dropdown [options]="MentalBehaviourLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalBehaviourLookupId']"
+                                            formControlName="MentalBehaviourLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalBehaviourLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1775,7 +1775,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Content</label>
                                         <ss-multiselect-dropdown [options]="MentalContentLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalContentLookupId']"
+                                            formControlName="MentalContentLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalContentLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1783,7 +1783,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Flow Of Thought</label>
                                         <ss-multiselect-dropdown [options]="MentalFlowOfThoughtLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalFlowOfThoughtLookupId']"
+                                            formControlName="MentalFlowOfThoughtLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalFlowOfThoughtLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1791,7 +1791,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Orientation</label>
                                         <ss-multiselect-dropdown [options]="MentalOrientationLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalOrientationLookupId']"
+                                            formControlName="MentalOrientationLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalOrientationLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1799,7 +1799,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Estimated Intellect</label>
                                         <ss-multiselect-dropdown [options]="MentalEstimatedIntellectLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalEstimatedIntellectLookupId']"
+                                            formControlName="MentalEstimatedIntellectLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalEstimatedIntellectLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1807,7 +1807,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Attention</label>
                                         <ss-multiselect-dropdown [options]="MentalAttentionLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalAttentionLookupId']"
+                                            formControlName="MentalAttentionLookupId"
                                             [(ngModel)] ="caseBook.SelectedMental.MentalAttentionLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1825,7 +1825,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Insight</label>
                                         <ss-multiselect-dropdown [options]="MentalInsightLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalInsightLookupId']"
+                                            formControlName="MentalInsightLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalInsightLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1833,7 +1833,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Judgement</label>
                                         <ss-multiselect-dropdown [options]="MentalJudgementLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalJudgementLookupId']"
+                                            formControlName="MentalJudgementLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalJudgementLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1841,7 +1841,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Memory</label>
                                         <ss-multiselect-dropdown [options]="MentalMemoryLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalMemoryLookupId']"
+                                            formControlName="MentalMemoryLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalMemoryLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1849,7 +1849,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Information</label>
                                         <ss-multiselect-dropdown [options]="MentalInformationLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalInformationLookupId']"
+                                            formControlName="MentalInformationLookupId"
                                             [(ngModel)] ="caseBook.SelectedMental.MentalInformationLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1857,7 +1857,7 @@
                                     <div class="form-group">
                                         <label for="PeacemakerId">Abstraction</label>
                                         <ss-multiselect-dropdown [options]="MentalAbstractionLookupOptionList"
-                                            [formControl]="caseMentalForm.controls['MentalAbstractionLookupId']"
+                                            formControlName="MentalAbstractionLookupId"
                                             [(ngModel)]="caseBook.SelectedMental.MentalAbstractionLookupArray">
                                         </ss-multiselect-dropdown>
                                     </div>
@@ -1897,7 +1897,7 @@
 
                                     <div class="form-group">
                                         <label for="PeacemakerId">Date *</label>
-                                        <my-date-picker name="CounselingDate" id="CounselingDate" [formControl]="caseSessionForm.controls['CounselingDate']"></my-date-picker>
+                                        <my-date-picker name="CounselingDate" id="CounselingDate" formControlName="CounselingDate"></my-date-picker>
                                         <div>
                                             <small *ngIf="caseSessionForm.controls['CounselingDate'].hasError('required') && caseSessionForm.controls['CounselingDate'].touched" class="mat-text-warn">Date is required.</small>
                                         </div>
@@ -1907,7 +1907,7 @@
                                         <label for="PeacemakerId">Counseling Type *</label>
                                         <ng-select [options]="typesOfCounselingLookupOptionList_S"
                                                    placeholder="Select"
-                                                   [formControl]="caseSessionForm.controls['TypeOfCounselingLookupId']"
+                                                   formControlName="TypeOfCounselingLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -1917,7 +1917,7 @@
 
                                     <div class="form-group">
                                         <label for="PeacemakerId">Duration (min) *</label>
-                                        <input placeholder="Duration" [formControl]="caseSessionForm.controls['DurationOfSessionMIn']" type="number" max="3" class="form-control" />
+                                        <input placeholder="Duration" formControlName="DurationOfSessionMIn" type="number" max="3" class="form-control" />
                                         <div>
                                             <small *ngIf="caseSessionForm.controls['DurationOfSessionMIn'].hasError('required') && caseSessionForm.controls['DurationOfSessionMIn'].touched" class="mat-text-warn">Duration is required.</small>
                                         </div>
@@ -1925,12 +1925,12 @@
 
                                     <div class="form-group">
                                         <label for="PeacemakerId">Next Session Date</label>
-                                        <my-date-picker name="NextSessionScheduled" id="NextSessionScheduled" [formControl]="caseSessionForm.controls['NextSessionScheduled']"></my-date-picker>
+                                        <my-date-picker name="NextSessionScheduled" id="NextSessionScheduled" formControlName="NextSessionScheduled"></my-date-picker>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="PeacemakerId">Notes *</label>
-                                        <input placeholder="Notes" [formControl]="caseSessionForm.controls['SessionNotes']" class="form-control" />
+                                        <input placeholder="Notes" formControlName="SessionNotes" class="form-control" />
                                         <div>
                                             <small *ngIf="caseSessionForm.controls['SessionNotes'].hasError('required') && caseSessionForm.controls['SessionNotes'].touched" class="mat-text-warn">Notes is required.</small>
                                         </div>
@@ -1976,7 +1976,7 @@
                                         <label for="PeacemakerId">Did you feel respected during your visit to the center? *</label>
                                         <ng-select [options]="RespectedDuringYourVisitLookupOptionList"
                                                    placeholder="Select"
-                                                   [formControl]="caseFeedbackForm.controls['RespectedDuringYourVisitLookupId']"
+                                                   formControlName="RespectedDuringYourVisitLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -1988,7 +1988,7 @@
                                         <label for="PeacemakerId">Did you feel safe and secure to discuss your situation with the counselor? *</label>
                                         <ng-select [options]="FeelSafeAndSecureLookupOptionList"
                                                    placeholder="Select"
-                                                   [formControl]="caseFeedbackForm.controls['FeelSafeAndSecureLookupId']"
+                                                   formControlName="FeelSafeAndSecureLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -2000,7 +2000,7 @@
                                         <label for="PeacemakerId">Did you feel that the counselling helped you in dealing with your situation? *</label>
                                         <ng-select [options]="FeelThatCounsellingLookupOptionList"
                                                    placeholder="Select"
-                                                   [formControl]="caseFeedbackForm.controls['FeelThatCounsellingLookupId']"
+                                                   formControlName="FeelThatCounsellingLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -2012,7 +2012,7 @@
                                         <label for="PeacemakerId">Did you find the assistance of the Peacemaker to be helpful? *</label>
                                         <ng-select [options]="AssistanceOfPeacemakerLookupOptionList"
                                                    placeholder="Select"
-                                                   [formControl]="caseFeedbackForm.controls['AssistanceOfPeacemakerLookupId']"
+                                                   formControlName="AssistanceOfPeacemakerLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -2024,7 +2024,7 @@
                                         <label for="PeacemakerId">Would you recommend the free counselling services to a friend or relative? *</label>
                                         <ng-select [options]="RecommendFreeCounsellingLookupOptionList"
                                                    placeholder="Select"
-                                                   [formControl]="caseFeedbackForm.controls['RecommendFreeCounsellingLookupId']"
+                                                   formControlName="RecommendFreeCounsellingLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -2036,7 +2036,7 @@
                                         <label for="PeacemakerId">Are you now able to improve your situation at home and with your family? *</label>
                                         <ng-select [options]="AbleToImproveLookupOptionList"
                                                    placeholder="Select"
-                                                   [formControl]="caseFeedbackForm.controls['AbleToImproveLookupId']"
+                                                   formControlName="AbleToImproveLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -2048,7 +2048,7 @@
                                         <label for="PeacemakerId">Would you like the OPM team to follow-up with you after your case is closed? *</label>
                                         <ng-select [options]="OPMTeamToFollowupLookupOptionList"
                                                    placeholder="Select"
-                                                   [formControl]="caseFeedbackForm.controls['OPMTeamToFollowupLookupId']"
+                                                   formControlName="OPMTeamToFollowupLookupId"
                                                    [allowClear]="true">
                                         </ng-select>
                                         <div>
@@ -2058,7 +2058,7 @@
 
                                     <div class="form-group">
                                         <label for="PeacemakerId">Do you have any suggestions that could improve the client experience with Operation Peacemaker?</label>
-                                        <input placeholder="Any Suggestions" [formControl]="caseFeedbackForm.controls['AnySuggestions']" class="form-control" />
+                                        <input placeholder="Any Suggestions" formControlName="AnySuggestions" class="form-control" />
                                     </div>
 
                                     <div class="form-group text-center">

@@ -322,20 +322,20 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
 
     private loadPrimayCaseTab() {        
         this.casePrimaryForm = this.fb.group({
-            CenterId: new FormControl(this.caseBook.Case.CenterId.toString(), Validators.required),
-            PeaceMakerId: new FormControl(this.caseBook.Case.PeaceMakerId.toString(), Validators.required),
-            CounselorId: new FormControl(this.caseBook.Case.CounselorId.toString(), Validators.required),
+            CenterId: [this.caseBook.Case.CenterId.toString(), Validators.required],
+            PeaceMakerId: [this.caseBook.Case.PeaceMakerId.toString(), Validators.required],
+            CounselorId: [this.caseBook.Case.CounselorId.toString(), Validators.required],
 
-            ClientFirstName: new FormControl(this.caseBook.Case.ClientFirstName, Validators.required),
-            ClientLastName: new FormControl(this.caseBook.Case.ClientLastName, Validators.required),
-            FatherName: new FormControl(this.caseBook.Case.FatherName, Validators.required),
-            Mi: new FormControl(this.caseBook.Case.Mi),
-            GenderLookupId: new FormControl(this.caseBook.Case.GenderLookupId.toString(), Validators.required),
+            ClientFirstName: [this.caseBook.Case.ClientFirstName, Validators.required],
+            ClientLastName: [this.caseBook.Case.ClientLastName, Validators.required],
+            FatherName: [this.caseBook.Case.FatherName, Validators.required],
+            Mi: [this.caseBook.Case.Mi],
+            GenderLookupId: [this.caseBook.Case.GenderLookupId.toString(), Validators.required],
 
-            MaritalStatusLookupId: new FormControl(this.caseBook.Case.MaritalStatusLookupId.toString(), Validators.required),
-            RequireAssistanceLookupId: new FormControl(this.caseBook.Case.RequireAssistanceLookupId.toString(), Validators.required),
-            Remarks: new FormControl(this.caseBook.Case.Remarks),
-            MobileNumber: new FormControl(this.caseBook.Case.MobileNumber, [Validators.required, Validators.minLength(10), this.validationService.mobileValidator]),            
+            MaritalStatusLookupId: [this.caseBook.Case.MaritalStatusLookupId.toString(), Validators.required],
+            RequireAssistanceLookupId: [this.caseBook.Case.RequireAssistanceLookupId.toString(), Validators.required],
+            Remarks: [this.caseBook.Case.Remarks],
+            MobileNumber: [this.caseBook.Case.MobileNumber, [Validators.required, Validators.minLength(10), this.validationService.mobileValidator]],            
         });
     }
 
@@ -358,7 +358,7 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         // this.casePrimaryForm.setValue({ myDate: '' });
     }
 
-    public onPrimayUpdate() {
+    public onPrimayUpdate()  {
         var caseBookNew = new CaseBook();
         caseBookNew.Case = new Case();
         caseBookNew.Case.CaseId = this.caseBook.Case.CaseId;
@@ -414,11 +414,11 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         this.caseBook.SelectedAddress.CaseId = this.caseBook.Case.CaseId;
 
         this.caseAddressForm = this.fb.group({
-            Address: new FormControl(this.caseBook.SelectedAddress.Address, Validators.required),
-            Area: new FormControl(this.caseBook.SelectedAddress.Area, Validators.required),
-            PIN: new FormControl(this.caseBook.SelectedAddress.PIN, [Validators.required, Validators.minLength(6), this.validationService.numericValidator]),
-            StateId: new FormControl(this.caseBook.SelectedAddress.StateId == undefined ? null : this.caseBook.SelectedAddress.StateId.toString(), Validators.required),
-            CityId: new FormControl(this.caseBook.SelectedAddress.CityId == undefined ? null : this.caseBook.SelectedAddress.CityId.toString(), Validators.required)
+            Address: [this.caseBook.SelectedAddress.Address, Validators.required],
+            Area: [this.caseBook.SelectedAddress.Area, Validators.required],
+            PIN: [this.caseBook.SelectedAddress.PIN, [Validators.required, Validators.minLength(6), this.validationService.numericValidator]],
+            StateId: [this.caseBook.SelectedAddress.StateId == undefined ? null : this.caseBook.SelectedAddress.StateId.toString(), Validators.required],
+            CityId: [this.caseBook.SelectedAddress.CityId == undefined ? null : this.caseBook.SelectedAddress.CityId.toString(), Validators.required]
         });
         this.addressModal.show();
     }
@@ -441,11 +441,11 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
 
         console.log({ value: address.StateId });
         this.caseAddressForm = this.fb.group({
-            Address: new FormControl(this.caseBook.SelectedAddress.Address, Validators.required),
-            Area: new FormControl(this.caseBook.SelectedAddress.Area, Validators.required),
-            PIN: new FormControl(this.caseBook.SelectedAddress.PIN, [Validators.required, Validators.minLength(6), this.validationService.numericValidator]),
-            StateId: new FormControl(this.caseBook.SelectedAddress.StateId.toString(), Validators.required),
-            CityId: new FormControl(this.caseBook.SelectedAddress.CityId.toString(), Validators.required)
+            Address: [this.caseBook.SelectedAddress.Address, Validators.required],
+            Area: [this.caseBook.SelectedAddress.Area, Validators.required],
+            PIN: [this.caseBook.SelectedAddress.PIN, [Validators.required, Validators.minLength(6), this.validationService.numericValidator]],
+            StateId: [this.caseBook.SelectedAddress.StateId.toString(), Validators.required],
+            CityId: [this.caseBook.SelectedAddress.CityId.toString(), Validators.required]
         });
         this.addressModal.show();
     }
@@ -481,10 +481,10 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         console.log(this.caseBook.SelectedChildren);
         
         this.caseChildrenForm = this.fb.group({
-            Name: new FormControl(this.caseBook.SelectedChildren.Name, Validators.required),
-            Age: new FormControl(this.caseBook.SelectedChildren.Age, [Validators.required, this.validationService.validateNumber]),
-            GenderLookupId: new FormControl(this.caseBook.SelectedChildren.GenderLookupId == undefined ? null : this.caseBook.SelectedChildren.GenderLookupId.toString(), Validators.required),
-            RelationshipWithAbuserLookupId: new FormControl(this.caseBook.SelectedChildren.RelationshipWithAbuserLookupId == undefined ? null : this.caseBook.SelectedChildren.RelationshipWithAbuserLookupId.toString(), Validators.required)
+            Name: [this.caseBook.SelectedChildren.Name, Validators.required],
+            Age: [this.caseBook.SelectedChildren.Age, [Validators.required, this.validationService.validateNumber]],
+            GenderLookupId: [this.caseBook.SelectedChildren.GenderLookupId == undefined ? null : this.caseBook.SelectedChildren.GenderLookupId.toString(), Validators.required],
+            RelationshipWithAbuserLookupId: [this.caseBook.SelectedChildren.RelationshipWithAbuserLookupId == undefined ? null : this.caseBook.SelectedChildren.RelationshipWithAbuserLookupId.toString(), Validators.required]
         });
         this.childrenModal.show();
     }
@@ -504,10 +504,10 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         this.caseBook.SelectedChildren.ModifiedDatetime = children.ModifiedDatetime;
 
         this.caseChildrenForm = this.fb.group({
-            Name: new FormControl(this.caseBook.SelectedChildren.Name, Validators.required),
-            Age: new FormControl(this.caseBook.SelectedChildren.Age, [Validators.required, this.validationService.validateNumber]),
-            GenderLookupId: new FormControl(this.caseBook.SelectedChildren.GenderLookupId.toString(), Validators.required),
-            RelationshipWithAbuserLookupId: new FormControl(this.caseBook.SelectedChildren.RelationshipWithAbuserLookupId.toString(), Validators.required)
+            Name: [this.caseBook.SelectedChildren.Name, Validators.required],
+            Age: [this.caseBook.SelectedChildren.Age, [Validators.required, this.validationService.validateNumber]],
+            GenderLookupId: [this.caseBook.SelectedChildren.GenderLookupId.toString(), Validators.required],
+            RelationshipWithAbuserLookupId: [this.caseBook.SelectedChildren.RelationshipWithAbuserLookupId.toString(), Validators.required]
         });
         this.childrenModal.show();
     }
@@ -573,26 +573,26 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
 
     private loadHouseHoldFormGroup() {
         this.clientAndHouseholdForm = this.fb.group({
-            ChildrenDeceasedLookupId: new FormControl(this.caseBook.FamilyHouseHold.ChildrenDeceasedLookupId == undefined ? null : this.caseBook.FamilyHouseHold.ChildrenDeceasedLookupId.toString()),
-            HouseHoldIncomeLookupId: new FormControl(this.caseBook.FamilyHouseHold.HouseHoldIncomeLookupId == undefined ? null : this.caseBook.FamilyHouseHold.HouseHoldIncomeLookupId.toString()),
-            SoughtHelpYesNoLookupId: new FormControl(this.caseBook.FamilyHouseHold.SoughtHelpYesNoLookupId == undefined ? null : this.caseBook.FamilyHouseHold.SoughtHelpYesNoLookupId.toString()),
-            SoughtHelpDesc: new FormControl(this.caseBook.FamilyHouseHold.SoughtHelpDesc),
-            SoughtHelpOutPut: new FormControl(this.caseBook.FamilyHouseHold.SoughtHelpOutPut),
-            PeacemakerAssistanceLookupId: new FormControl(this.caseBook.FamilyHouseHold.PeacemakerAssistanceLookupId == undefined ? null : this.caseBook.FamilyHouseHold.PeacemakerAssistanceLookupId.toString()),
-            PeacemakerAssistanceDesc: new FormControl(this.caseBook.FamilyHouseHold.PeacemakerAssistanceDesc),
-            PeacemakerFollowupYesNoLookupId: new FormControl(this.caseBook.FamilyHouseHold.PeacemakerFollowupYesNoLookupId == undefined ? null : this.caseBook.FamilyHouseHold.PeacemakerFollowupYesNoLookupId.toString()),
-            ClientSignedRegistrationFormYesNoLookupId: new FormControl(this.caseBook.FamilyHouseHold.ClientSignedRegistrationFormYesNoLookupId == undefined ? null : this.caseBook.FamilyHouseHold.ClientSignedRegistrationFormYesNoLookupId.toString()),
-            ClientEmailId: new FormControl(this.caseBook.FamilyHouseHold.ClientEmailId, this.validationService.emailValidator),
-            ReligionLookupId: new FormControl(this.caseBook.FamilyHouseHold.ReligionLookupId == undefined ? null : this.caseBook.FamilyHouseHold.ReligionLookupId.toString()),
-            LevelOfEducationLookupId: new FormControl(this.caseBook.FamilyHouseHold.LevelOfEducationLookupId == undefined ? null : this.caseBook.FamilyHouseHold.LevelOfEducationLookupId.toString()),
-            VocationalSkillsLookupId: new FormControl(this.caseBook.FamilyHouseHold.VocationalSkillsLookupId == undefined ? null : this.caseBook.FamilyHouseHold.VocationalSkillsLookupId.toString()),
-            VocationalSkillsDesc: new FormControl(this.caseBook.FamilyHouseHold.VocationalSkillsDesc),
-            OccupationLookupId: new FormControl(this.caseBook.FamilyHouseHold.OccupationLookupId == undefined ? null : this.caseBook.FamilyHouseHold.OccupationLookupId.toString()),
-            OccupationDesc: new FormControl(this.caseBook.FamilyHouseHold.OccupationDesc),
-            ClientIncomeLookupId: new FormControl(this.caseBook.FamilyHouseHold.ClientIncomeLookupId == undefined ? null : this.caseBook.FamilyHouseHold.ClientIncomeLookupId.toString()),
-            HouseHoldMembersLivingLookupId: new FormControl(this.caseBook.FamilyHouseHold.HouseHoldMembersLivingLookupId == undefined ? null : this.caseBook.FamilyHouseHold.HouseHoldMembersLivingLookupId.toString()),
-            YearOfMarriage: new FormControl(this.caseBook.FamilyHouseHold.YearOfMarriage, [this.validationService.validateNumber]),
-            ClientAgeAtFirstChild: new FormControl(this.caseBook.FamilyHouseHold.ClientAgeAtFirstChild, [Validators.minLength(2), this.validationService.validateNumber])
+            ChildrenDeceasedLookupId: [this.caseBook.FamilyHouseHold.ChildrenDeceasedLookupId == undefined ? null : this.caseBook.FamilyHouseHold.ChildrenDeceasedLookupId.toString()],
+            HouseHoldIncomeLookupId: [this.caseBook.FamilyHouseHold.HouseHoldIncomeLookupId == undefined ? null : this.caseBook.FamilyHouseHold.HouseHoldIncomeLookupId.toString()],
+            SoughtHelpYesNoLookupId: [this.caseBook.FamilyHouseHold.SoughtHelpYesNoLookupId == undefined ? null : this.caseBook.FamilyHouseHold.SoughtHelpYesNoLookupId.toString()],
+            SoughtHelpDesc: [this.caseBook.FamilyHouseHold.SoughtHelpDesc],
+            SoughtHelpOutPut: [this.caseBook.FamilyHouseHold.SoughtHelpOutPut],
+            PeacemakerAssistanceLookupId: [this.caseBook.FamilyHouseHold.PeacemakerAssistanceLookupId == undefined ? null : this.caseBook.FamilyHouseHold.PeacemakerAssistanceLookupId.toString()],
+            PeacemakerAssistanceDesc: [this.caseBook.FamilyHouseHold.PeacemakerAssistanceDesc],
+            PeacemakerFollowupYesNoLookupId: [this.caseBook.FamilyHouseHold.PeacemakerFollowupYesNoLookupId == undefined ? null : this.caseBook.FamilyHouseHold.PeacemakerFollowupYesNoLookupId.toString()],
+            ClientSignedRegistrationFormYesNoLookupId: [this.caseBook.FamilyHouseHold.ClientSignedRegistrationFormYesNoLookupId == undefined ? null : this.caseBook.FamilyHouseHold.ClientSignedRegistrationFormYesNoLookupId.toString()],
+            ClientEmailId: [this.caseBook.FamilyHouseHold.ClientEmailId, this.validationService.emailValidator],
+            ReligionLookupId: [this.caseBook.FamilyHouseHold.ReligionLookupId == undefined ? null : this.caseBook.FamilyHouseHold.ReligionLookupId.toString()],
+            LevelOfEducationLookupId: [this.caseBook.FamilyHouseHold.LevelOfEducationLookupId == undefined ? null : this.caseBook.FamilyHouseHold.LevelOfEducationLookupId.toString()],
+            VocationalSkillsLookupId: [this.caseBook.FamilyHouseHold.VocationalSkillsLookupId == undefined ? null : this.caseBook.FamilyHouseHold.VocationalSkillsLookupId.toString()],
+            VocationalSkillsDesc: [this.caseBook.FamilyHouseHold.VocationalSkillsDesc],
+            OccupationLookupId: [this.caseBook.FamilyHouseHold.OccupationLookupId == undefined ? null : this.caseBook.FamilyHouseHold.OccupationLookupId.toString()],
+            OccupationDesc: [this.caseBook.FamilyHouseHold.OccupationDesc],
+            ClientIncomeLookupId: [this.caseBook.FamilyHouseHold.ClientIncomeLookupId == undefined ? null : this.caseBook.FamilyHouseHold.ClientIncomeLookupId.toString()],
+            HouseHoldMembersLivingLookupId: [this.caseBook.FamilyHouseHold.HouseHoldMembersLivingLookupId == undefined ? null : this.caseBook.FamilyHouseHold.HouseHoldMembersLivingLookupId.toString()],
+            YearOfMarriage: [this.caseBook.FamilyHouseHold.YearOfMarriage, this.validationService.validateNumber],
+            ClientAgeAtFirstChild: [this.caseBook.FamilyHouseHold.ClientAgeAtFirstChild, [Validators.minLength(2), this.validationService.validateNumber]]
         });
     }
     /* End of - client And Household */
@@ -622,26 +622,26 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
     private loadSpouseFormGroup() {
         this.onSpouseStateSelected({ value: this.caseBook.Spouse.StateLookupId });
         this.spouseForm = this.fb.group({
-            SpouseName: new FormControl(this.caseBook.Spouse.SpouseName),
-            SpouseHomePhone: new FormControl(this.caseBook.Spouse.SpouseHomePhone, [Validators.minLength(10), this.validationService.mobileValidator]),
-            SpouseMobilePhone: new FormControl(this.caseBook.Spouse.SpouseMobilePhone, [Validators.minLength(10), this.validationService.mobileValidator]),
-            SpouseOccupation: new FormControl(this.caseBook.Spouse.SpouseOccupation),
-            SpouseEducationLookupId: new FormControl(this.caseBook.Spouse.SpouseEducationLookupId == undefined ? null : this.caseBook.Spouse.SpouseEducationLookupId.toString()),
-            SpouseAddress: new FormControl(this.caseBook.Spouse.SpouseAddress),
-            Area: new FormControl(this.caseBook.Spouse.Area),
-            CityLookupId: new FormControl(this.caseBook.Spouse.CityLookupId == undefined ? null : this.caseBook.Spouse.CityLookupId.toString()),
-            StateLookupId: new FormControl(this.caseBook.Spouse.StateLookupId == undefined ? null : this.caseBook.Spouse.StateLookupId.toString()),
-            PIN: new FormControl(this.caseBook.Spouse.PIN, [Validators.minLength(6), this.validationService.numericValidator]),
+            SpouseName: [this.caseBook.Spouse.SpouseName],
+            SpouseHomePhone: [this.caseBook.Spouse.SpouseHomePhone, [Validators.minLength(10), this.validationService.mobileValidator]],
+            SpouseMobilePhone: [this.caseBook.Spouse.SpouseMobilePhone, [Validators.minLength(10), this.validationService.mobileValidator]],
+            SpouseOccupation: [this.caseBook.Spouse.SpouseOccupation],
+            SpouseEducationLookupId: [this.caseBook.Spouse.SpouseEducationLookupId == undefined ? null : this.caseBook.Spouse.SpouseEducationLookupId.toString()],
+            SpouseAddress: [this.caseBook.Spouse.SpouseAddress],
+            Area: [this.caseBook.Spouse.Area],
+            CityLookupId: [this.caseBook.Spouse.CityLookupId == undefined ? null : this.caseBook.Spouse.CityLookupId.toString()],
+            StateLookupId: [this.caseBook.Spouse.StateLookupId == undefined ? null : this.caseBook.Spouse.StateLookupId.toString()],
+            PIN: [this.caseBook.Spouse.PIN, [Validators.minLength(6), this.validationService.numericValidator]],
 
-            PrimaryEmergencyContactName: new FormControl(this.caseBook.Spouse.PrimaryEmergencyContactName),
-            PrimaryEmergencyRelationshipToClientLookupId: new FormControl(this.caseBook.Spouse.PrimaryEmergencyRelationshipToClientLookupId == undefined ? null : this.caseBook.Spouse.PrimaryEmergencyRelationshipToClientLookupId.toString()),
-            PrimaryEmergencyContactPhoneNumber: new FormControl(this.caseBook.Spouse.PrimaryEmergencyContactPhoneNumber, [Validators.minLength(10), this.validationService.mobileValidator]),
-            PrimaryEmergencyContactAdress: new FormControl(this.caseBook.Spouse.PrimaryEmergencyContactAdress),
+            PrimaryEmergencyContactName: [this.caseBook.Spouse.PrimaryEmergencyContactName],
+            PrimaryEmergencyRelationshipToClientLookupId: [this.caseBook.Spouse.PrimaryEmergencyRelationshipToClientLookupId == undefined ? null : this.caseBook.Spouse.PrimaryEmergencyRelationshipToClientLookupId.toString()],
+            PrimaryEmergencyContactPhoneNumber: [this.caseBook.Spouse.PrimaryEmergencyContactPhoneNumber, [Validators.minLength(10), this.validationService.mobileValidator]],
+            PrimaryEmergencyContactAdress: [this.caseBook.Spouse.PrimaryEmergencyContactAdress],
 
-            SecondaryEmergencyContactName: new FormControl(this.caseBook.Spouse.SecondaryEmergencyContactName),
-            SecondaryEmergencyRelationshipToClientLookupId: new FormControl(this.caseBook.Spouse.SecondaryEmergencyRelationshipToClientLookupId == undefined ? null : this.caseBook.Spouse.SecondaryEmergencyRelationshipToClientLookupId.toString()),
-            SecondaryEmergencyContactPhoneNumber: new FormControl(this.caseBook.Spouse.SecondaryEmergencyContactPhoneNumber, [Validators.minLength(10), this.validationService.mobileValidator]),
-            SecondaryEmergencyContactAdress: new FormControl(this.caseBook.Spouse.SecondaryEmergencyContactAdress)
+            SecondaryEmergencyContactName: [this.caseBook.Spouse.SecondaryEmergencyContactName],
+            SecondaryEmergencyRelationshipToClientLookupId: [this.caseBook.Spouse.SecondaryEmergencyRelationshipToClientLookupId == undefined ? null : this.caseBook.Spouse.SecondaryEmergencyRelationshipToClientLookupId.toString()],
+            SecondaryEmergencyContactPhoneNumber: [this.caseBook.Spouse.SecondaryEmergencyContactPhoneNumber, [Validators.minLength(10), this.validationService.mobileValidator]],
+            SecondaryEmergencyContactAdress: [this.caseBook.Spouse.SecondaryEmergencyContactAdress]
 
         });
     }
@@ -685,29 +685,29 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
 
     private loadPhysicalHealthFromGroup() {
         this.physicalHealthForm = this.fb.group({
-            SufferingFromAnyMajorIllnessLookupId: new FormControl(this.caseBook.PhysicalHealth.SufferingFromAnyMajorIllnessLookupId == undefined ? null : this.caseBook.PhysicalHealth.SufferingFromAnyMajorIllnessLookupId.toString()),
-            SufferingFromAnyMajorIllnessDesc: new FormControl(this.caseBook.PhysicalHealth.SufferingFromAnyMajorIllnessDesc),
+            SufferingFromAnyMajorIllnessLookupId: [this.caseBook.PhysicalHealth.SufferingFromAnyMajorIllnessLookupId == undefined ? null : this.caseBook.PhysicalHealth.SufferingFromAnyMajorIllnessLookupId.toString()],
+            SufferingFromAnyMajorIllnessDesc: [this.caseBook.PhysicalHealth.SufferingFromAnyMajorIllnessDesc],
 
-            DiagnosedPsychiatricIllnessLookupId: new FormControl(this.caseBook.PhysicalHealth.DiagnosedPsychiatricIllnessLookupId == undefined ? null : this.caseBook.PhysicalHealth.DiagnosedPsychiatricIllnessLookupId.toString()),
-            DiagnosedPsychiatricIllnessDesc: new FormControl(this.caseBook.PhysicalHealth.DiagnosedPsychiatricIllnessDesc),
+            DiagnosedPsychiatricIllnessLookupId: [this.caseBook.PhysicalHealth.DiagnosedPsychiatricIllnessLookupId == undefined ? null : this.caseBook.PhysicalHealth.DiagnosedPsychiatricIllnessLookupId.toString()],
+            DiagnosedPsychiatricIllnessDesc: [this.caseBook.PhysicalHealth.DiagnosedPsychiatricIllnessDesc],
 
-            SleepPerNightLookupId: new FormControl(this.caseBook.PhysicalHealth.SleepPerNightLookupId == undefined ? null : this.caseBook.PhysicalHealth.SleepPerNightLookupId.toString()),
-            AppetiteLookupId: new FormControl(this.caseBook.PhysicalHealth.AppetiteLookupId == undefined ? null : this.caseBook.PhysicalHealth.AppetiteLookupId.toString()),
-            ExerciseLookupId: new FormControl(this.caseBook.PhysicalHealth.ExerciseLookupId == undefined ? null : this.caseBook.PhysicalHealth.ExerciseLookupId.toString()),
+            SleepPerNightLookupId: [this.caseBook.PhysicalHealth.SleepPerNightLookupId == undefined ? null : this.caseBook.PhysicalHealth.SleepPerNightLookupId.toString()],
+            AppetiteLookupId: [this.caseBook.PhysicalHealth.AppetiteLookupId == undefined ? null : this.caseBook.PhysicalHealth.AppetiteLookupId.toString()],
+            ExerciseLookupId: [this.caseBook.PhysicalHealth.ExerciseLookupId == undefined ? null : this.caseBook.PhysicalHealth.ExerciseLookupId.toString()],
 
-            AnyMedicationLookupId: new FormControl(this.caseBook.PhysicalHealth.AnyMedicationLookupId == undefined ? null : this.caseBook.PhysicalHealth.AnyMedicationLookupId.toString()),
-            AnyMedicationDesc: new FormControl(this.caseBook.PhysicalHealth.AnyMedicationDesc),
+            AnyMedicationLookupId: [this.caseBook.PhysicalHealth.AnyMedicationLookupId == undefined ? null : this.caseBook.PhysicalHealth.AnyMedicationLookupId.toString()],
+            AnyMedicationDesc: [this.caseBook.PhysicalHealth.AnyMedicationDesc],
 
-            AnySubstanceLookupId: new FormControl(this.caseBook.PhysicalHealth.AnySubstanceLookupId == undefined ? null : this.caseBook.PhysicalHealth.AnySubstanceLookupId.toString()),
-            AnySubstanceDesc: new FormControl(this.caseBook.PhysicalHealth.AnySubstanceDesc),
+            AnySubstanceLookupId: [this.caseBook.PhysicalHealth.AnySubstanceLookupId == undefined ? null : this.caseBook.PhysicalHealth.AnySubstanceLookupId.toString()],
+            AnySubstanceDesc: [this.caseBook.PhysicalHealth.AnySubstanceDesc],
 
-            CurrentlyPregnantLookup: new FormControl(this.caseBook.PhysicalHealth.CurrentlyPregnantLookup == undefined ? null : this.caseBook.PhysicalHealth.CurrentlyPregnantLookup.toString()),
-            CurrentlyPregnantDesc: new FormControl(this.caseBook.PhysicalHealth.CurrentlyPregnantDesc),
+            CurrentlyPregnantLookup: [this.caseBook.PhysicalHealth.CurrentlyPregnantLookup == undefined ? null : this.caseBook.PhysicalHealth.CurrentlyPregnantLookup.toString()],
+            CurrentlyPregnantDesc: [this.caseBook.PhysicalHealth.CurrentlyPregnantDesc],
 
-            ReasonForSeekingHelpLookupId: new FormControl(this.caseBook.PhysicalHealth.ReasonForSeekingHelpLookupId == undefined ? null : this.caseBook.PhysicalHealth.ReasonForSeekingHelpLookupId.toString()),
-            WhoIsAbusingYouLookupId: new FormControl(this.caseBook.PhysicalHealth.WhoIsAbusingYouLookupId == undefined ? null : this.caseBook.PhysicalHealth.WhoIsAbusingYouLookupId.toString()),
-            WhoIsAbusingYouDesc: new FormControl(this.caseBook.PhysicalHealth.WhoIsAbusingYouDesc == undefined ? null : this.caseBook.PhysicalHealth.WhoIsAbusingYouDesc.toString()),
-            ReasonForSeekingHelpDesc: new FormControl(this.caseBook.PhysicalHealth.ReasonForSeekingHelpDesc == undefined ? null : this.caseBook.PhysicalHealth.ReasonForSeekingHelpDesc.toString())
+            ReasonForSeekingHelpLookupId: [this.caseBook.PhysicalHealth.ReasonForSeekingHelpLookupId == undefined ? null : this.caseBook.PhysicalHealth.ReasonForSeekingHelpLookupId.toString()],
+            WhoIsAbusingYouLookupId: [this.caseBook.PhysicalHealth.WhoIsAbusingYouLookupId == undefined ? null : this.caseBook.PhysicalHealth.WhoIsAbusingYouLookupId.toString()],
+            WhoIsAbusingYouDesc: [this.caseBook.PhysicalHealth.WhoIsAbusingYouDesc == undefined ? null : this.caseBook.PhysicalHealth.WhoIsAbusingYouDesc.toString()],
+            ReasonForSeekingHelpDesc: [this.caseBook.PhysicalHealth.ReasonForSeekingHelpDesc == undefined ? null : this.caseBook.PhysicalHealth.ReasonForSeekingHelpDesc.toString()]
         });
     }
 
@@ -754,11 +754,11 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         this.caseBook.SelectedOffender.CaseId = this.caseBook.Case.CaseId;
 
         this.caseOffenderForm = this.fb.group({
-            Name: new FormControl(this.caseBook.SelectedOffender.Name, Validators.required),
-            Age: new FormControl(this.caseBook.SelectedOffender.Age, [Validators.maxLength(2), this.validationService.validateNumber, Validators.required]),
-            GenderLookupId: new FormControl(this.caseBook.SelectedOffender.GenderLookupId == undefined ? null : this.caseBook.SelectedOffender.GenderLookupId.toString(), Validators.required),
-            RelationshipWithVictimLookupId: new FormControl(this.caseBook.SelectedOffender.RelationshipWithVictimLookupId == undefined ? null : this.caseBook.SelectedOffender.RelationshipWithVictimLookupId.toString(), Validators.required),
-            OtherRelationship: new FormControl(this.caseBook.SelectedOffender.OtherRelationship)
+            Name: [this.caseBook.SelectedOffender.Name, Validators.required],
+            Age: [this.caseBook.SelectedOffender.Age, [Validators.maxLength(2), this.validationService.validateNumber, Validators.required]],
+            GenderLookupId: [this.caseBook.SelectedOffender.GenderLookupId == undefined ? null : this.caseBook.SelectedOffender.GenderLookupId.toString(), Validators.required],
+            RelationshipWithVictimLookupId: [this.caseBook.SelectedOffender.RelationshipWithVictimLookupId == undefined ? null : this.caseBook.SelectedOffender.RelationshipWithVictimLookupId.toString(), Validators.required],
+            OtherRelationship: [this.caseBook.SelectedOffender.OtherRelationship]
         });
         this.offenderModal.show();
     }
@@ -774,11 +774,11 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         this.caseBook.SelectedOffender.OtherRelationship = offender.OtherRelationship;
 
         this.caseOffenderForm = this.fb.group({
-            Name: new FormControl(this.caseBook.SelectedOffender.Name, Validators.required),
-            Age: new FormControl(this.caseBook.SelectedOffender.Age, [Validators.maxLength(2), this.validationService.validateNumber, Validators.required]),
-            GenderLookupId: new FormControl(this.caseBook.SelectedOffender.GenderLookupId == undefined ? null : this.caseBook.SelectedOffender.GenderLookupId.toString(), Validators.required),
-            RelationshipWithVictimLookupId: new FormControl(this.caseBook.SelectedOffender.RelationshipWithVictimLookupId == undefined ? null : this.caseBook.SelectedOffender.RelationshipWithVictimLookupId.toString(), Validators.required),
-            OtherRelationship: new FormControl(this.caseBook.SelectedOffender.OtherRelationship, Validators.required)
+            Name: [this.caseBook.SelectedOffender.Name, Validators.required],
+            Age: [this.caseBook.SelectedOffender.Age, [Validators.maxLength(2), this.validationService.validateNumber, Validators.required]],
+            GenderLookupId: [this.caseBook.SelectedOffender.GenderLookupId == undefined ? null : this.caseBook.SelectedOffender.GenderLookupId.toString(), Validators.required],
+            RelationshipWithVictimLookupId: [this.caseBook.SelectedOffender.RelationshipWithVictimLookupId == undefined ? null : this.caseBook.SelectedOffender.RelationshipWithVictimLookupId.toString(), Validators.required],
+            OtherRelationship: [this.caseBook.SelectedOffender.OtherRelationship, Validators.required]
         });
         this.offenderModal.show();
     }
@@ -833,36 +833,36 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
     
     private loadAbuseFromGroup() {
         this.caseAbuseForm = this.fb.group({
-            SufferingFromAbuseLookupId: new FormControl(this.caseBook.Abuse.SufferingFromAbuseLookupId == undefined ? null : this.caseBook.Abuse.SufferingFromAbuseLookupId.toString()),
-            SufferingFromAbuseDesc: new FormControl(this.caseBook.Abuse.SufferingFromAbuseDesc),
+            SufferingFromAbuseLookupId: [this.caseBook.Abuse.SufferingFromAbuseLookupId == undefined ? null : this.caseBook.Abuse.SufferingFromAbuseLookupId.toString()],
+            SufferingFromAbuseDesc: [this.caseBook.Abuse.SufferingFromAbuseDesc],
 
-            FeelAboutAbuseLookupId: new FormControl(this.caseBook.Abuse.FeelAboutAbuseLookupId == undefined ? null : this.caseBook.Abuse.FeelAboutAbuseLookupId.toString()),
-            ParentsFeelAboutAbuseLookupId: new FormControl(this.caseBook.Abuse.ParentsFeelAboutAbuseLookupId == undefined ? null : this.caseBook.Abuse.ParentsFeelAboutAbuseLookupId.toString()),
-            LawFeelAboutAbuseLookupId: new FormControl(this.caseBook.Abuse.LawFeelAboutAbuseLookupId == undefined ? null : this.caseBook.Abuse.LawFeelAboutAbuseLookupId.toString()),
-            SignsOfPhysicalAbuseLookupId: new FormControl(this.caseBook.Abuse.SignsOfPhysicalAbuseLookupId == undefined ? null : this.caseBook.Abuse.SignsOfPhysicalAbuseLookupId.toString()),
-            SignsOfPhysicalAbuseDesc: new FormControl(this.caseBook.Abuse.SignsOfPhysicalAbuseDesc),
+            FeelAboutAbuseLookupId: [this.caseBook.Abuse.FeelAboutAbuseLookupId == undefined ? null : this.caseBook.Abuse.FeelAboutAbuseLookupId.toString()],
+            ParentsFeelAboutAbuseLookupId: [this.caseBook.Abuse.ParentsFeelAboutAbuseLookupId == undefined ? null : this.caseBook.Abuse.ParentsFeelAboutAbuseLookupId.toString()],
+            LawFeelAboutAbuseLookupId: [this.caseBook.Abuse.LawFeelAboutAbuseLookupId == undefined ? null : this.caseBook.Abuse.LawFeelAboutAbuseLookupId.toString()],
+            SignsOfPhysicalAbuseLookupId: [this.caseBook.Abuse.SignsOfPhysicalAbuseLookupId == undefined ? null : this.caseBook.Abuse.SignsOfPhysicalAbuseLookupId.toString()],
+            SignsOfPhysicalAbuseDesc: [this.caseBook.Abuse.SignsOfPhysicalAbuseDesc],
 
-            WeaponsUsedLookupId: new FormControl(this.caseBook.Abuse.WeaponsUsedLookupId == undefined ? null : this.caseBook.Abuse.WeaponsUsedLookupId.toString()),
-            WeaponsUsedDesc: new FormControl(this.caseBook.Abuse.WeaponsUsedDesc),
+            WeaponsUsedLookupId: [this.caseBook.Abuse.WeaponsUsedLookupId == undefined ? null : this.caseBook.Abuse.WeaponsUsedLookupId.toString()],
+            WeaponsUsedDesc: [this.caseBook.Abuse.WeaponsUsedDesc],
 
-            TypesOfPhyscialAbuseLookupId: new FormControl(this.caseBook.Abuse.TypesOfPhyscialAbuseLookupId == undefined ? null : this.caseBook.Abuse.TypesOfPhyscialAbuseLookupId.toString()),
-            FrequencyOfPhyscialAbuseLookupId: new FormControl(this.caseBook.Abuse.FrequencyOfPhyscialAbuseLookupId == undefined ? null : this.caseBook.Abuse.FrequencyOfPhyscialAbuseLookupId.toString()),
-            NumberOfYearsOfPhyscialAbuse: new FormControl(this.caseBook.Abuse.NumberOfYearsOfPhyscialAbuse == undefined ? null : this.caseBook.Abuse.NumberOfYearsOfPhyscialAbuse.toString(), [Validators.maxLength(2), this.validationService.validateNumber]),
+            TypesOfPhyscialAbuseLookupId: [this.caseBook.Abuse.TypesOfPhyscialAbuseLookupId == undefined ? null : this.caseBook.Abuse.TypesOfPhyscialAbuseLookupId.toString()],
+            FrequencyOfPhyscialAbuseLookupId: [this.caseBook.Abuse.FrequencyOfPhyscialAbuseLookupId == undefined ? null : this.caseBook.Abuse.FrequencyOfPhyscialAbuseLookupId.toString()],
+            NumberOfYearsOfPhyscialAbuse: [this.caseBook.Abuse.NumberOfYearsOfPhyscialAbuse == undefined ? null : this.caseBook.Abuse.NumberOfYearsOfPhyscialAbuse.toString(), [Validators.maxLength(2), this.validationService.validateNumber]],
 
-            TypesOfEmotionalAbuseLookupId: new FormControl(this.caseBook.Abuse.TypesOfEmotionalAbuseLookupId == undefined ? null : this.caseBook.Abuse.TypesOfEmotionalAbuseLookupId.toString()),
-            FrequencyOfEmotionalAbuseLookupId: new FormControl(this.caseBook.Abuse.FrequencyOfEmotionalAbuseLookupId == undefined ? null : this.caseBook.Abuse.FrequencyOfEmotionalAbuseLookupId.toString()),
-            NumberOfYearsOfEmotionalAbuse: new FormControl(this.caseBook.Abuse.NumberOfYearsOfEmotionalAbuse == undefined ? null : this.caseBook.Abuse.NumberOfYearsOfEmotionalAbuse.toString(), [Validators.maxLength(2), this.validationService.validateNumber]),
+            TypesOfEmotionalAbuseLookupId: [this.caseBook.Abuse.TypesOfEmotionalAbuseLookupId == undefined ? null : this.caseBook.Abuse.TypesOfEmotionalAbuseLookupId.toString()],
+            FrequencyOfEmotionalAbuseLookupId: [this.caseBook.Abuse.FrequencyOfEmotionalAbuseLookupId == undefined ? null : this.caseBook.Abuse.FrequencyOfEmotionalAbuseLookupId.toString()],
+            NumberOfYearsOfEmotionalAbuse: [this.caseBook.Abuse.NumberOfYearsOfEmotionalAbuse == undefined ? null : this.caseBook.Abuse.NumberOfYearsOfEmotionalAbuse.toString(), [Validators.maxLength(2), this.validationService.validateNumber]],
 
-            TypesOfSexualAbuseLookupId: new FormControl(this.caseBook.Abuse.TypesOfSexualAbuseLookupId == undefined ? null : this.caseBook.Abuse.TypesOfSexualAbuseLookupId.toString()),
-            FrequencyOfSexualAbuseLookupId: new FormControl(this.caseBook.Abuse.FrequencyOfSexualAbuseLookupId == undefined ? null : this.caseBook.Abuse.FrequencyOfSexualAbuseLookupId.toString()),
-            NumberOfYearsOfSexualAbuse: new FormControl(this.caseBook.Abuse.NumberOfYearsOfSexualAbuse == undefined ? null : this.caseBook.Abuse.NumberOfYearsOfSexualAbuse.toString(), [Validators.maxLength(2), this.validationService.validateNumber]),
+            TypesOfSexualAbuseLookupId: [this.caseBook.Abuse.TypesOfSexualAbuseLookupId == undefined ? null : this.caseBook.Abuse.TypesOfSexualAbuseLookupId.toString()],
+            FrequencyOfSexualAbuseLookupId: [this.caseBook.Abuse.FrequencyOfSexualAbuseLookupId == undefined ? null : this.caseBook.Abuse.FrequencyOfSexualAbuseLookupId.toString()],
+            NumberOfYearsOfSexualAbuse: [this.caseBook.Abuse.NumberOfYearsOfSexualAbuse == undefined ? null : this.caseBook.Abuse.NumberOfYearsOfSexualAbuse.toString(), [Validators.maxLength(2), this.validationService.validateNumber]],
 
-            TypesOfEconomicAbuseLookupId: new FormControl(this.caseBook.Abuse.TypesOfEconomicAbuseLookupId == undefined ? null : this.caseBook.Abuse.TypesOfEconomicAbuseLookupId.toString()),
-            FrequencyOfEconomicAbuseLookupId: new FormControl(this.caseBook.Abuse.FrequencyOfEconomicAbuseLookupId == undefined ? null : this.caseBook.Abuse.FrequencyOfEconomicAbuseLookupId.toString()),
-            NumberOfYearsOfEconomicAbuse: new FormControl(this.caseBook.Abuse.NumberOfYearsOfEconomicAbuse == undefined ? null : this.caseBook.Abuse.NumberOfYearsOfEconomicAbuse.toString(), [Validators.maxLength(2), this.validationService.validateNumber]),
+            TypesOfEconomicAbuseLookupId: [this.caseBook.Abuse.TypesOfEconomicAbuseLookupId == undefined ? null : this.caseBook.Abuse.TypesOfEconomicAbuseLookupId.toString()],
+            FrequencyOfEconomicAbuseLookupId: [this.caseBook.Abuse.FrequencyOfEconomicAbuseLookupId == undefined ? null : this.caseBook.Abuse.FrequencyOfEconomicAbuseLookupId.toString()],
+            NumberOfYearsOfEconomicAbuse: [this.caseBook.Abuse.NumberOfYearsOfEconomicAbuse == undefined ? null : this.caseBook.Abuse.NumberOfYearsOfEconomicAbuse.toString(), [Validators.maxLength(2), this.validationService.validateNumber]],
 
-            ReasonsForAbuseLookupId: new FormControl(this.caseBook.Abuse.ReasonsForAbuseLookupId == undefined ? null : this.caseBook.Abuse.ReasonsForAbuseLookupId.toString()),
-            ReasonForAbuseDesc: new FormControl(this.caseBook.Abuse.ReasonForAbuseDesc)
+            ReasonsForAbuseLookupId: [this.caseBook.Abuse.ReasonsForAbuseLookupId == undefined ? null : this.caseBook.Abuse.ReasonsForAbuseLookupId.toString()],
+            ReasonForAbuseDesc: [this.caseBook.Abuse.ReasonForAbuseDesc]
         });
     }
 
@@ -922,21 +922,21 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
     private loadManageFromGroup() {
         this.caseManageForm = this.fb.group({
 
-            CaseStatusId: new FormControl(this.caseBook.Manage.CaseStatusId == undefined ? null : this.caseBook.Manage.CaseStatusId.toString()),
-            ReferredToWhom: new FormControl(this.caseBook.Manage.ReferredToWhom),
-            SourceOfCaseLookupId: new FormControl(this.caseBook.Manage.SourceOfCaseLookupId == undefined ? null : this.caseBook.Manage.SourceOfCaseLookupId.toString()),
-            SourceOfCaseDesc: new FormControl(this.caseBook.Manage.SourceOfCaseDesc),
+            CaseStatusId: [this.caseBook.Manage.CaseStatusId == undefined ? null : this.caseBook.Manage.CaseStatusId.toString()],
+            ReferredToWhom: [this.caseBook.Manage.ReferredToWhom],
+            SourceOfCaseLookupId: [this.caseBook.Manage.SourceOfCaseLookupId == undefined ? null : this.caseBook.Manage.SourceOfCaseLookupId.toString()],
+            SourceOfCaseDesc: [this.caseBook.Manage.SourceOfCaseDesc],
 
-            TypesOfCounselingLookupId: new FormControl(this.caseBook.Manage.TypesOfCounselingLookupId == undefined ? null : this.caseBook.Manage.TypesOfCounselingLookupId.toString()),
-            TotalNoOfSessionsLookupId: new FormControl(this.caseBook.Manage.TotalNoOfSessionsLookupId == undefined ? null : this.caseBook.Manage.TotalNoOfSessionsLookupId.toString(), [Validators.maxLength(3), this.validationService.validateNumber, Validators.pattern("^[0-9]*$")]),
-            TotalHoursSpentLookupId: new FormControl(this.caseBook.Manage.TotalHoursSpentLookupId == undefined ? null : this.caseBook.Manage.TotalHoursSpentLookupId.toString(), [Validators.maxLength(5), this.validationService.validateNumber, this.validationService.validateTime]),
+            TypesOfCounselingLookupId: [this.caseBook.Manage.TypesOfCounselingLookupId == undefined ? null : this.caseBook.Manage.TypesOfCounselingLookupId.toString()],
+            TotalNoOfSessionsLookupId: [this.caseBook.Manage.TotalNoOfSessionsLookupId == undefined ? null : this.caseBook.Manage.TotalNoOfSessionsLookupId.toString(), [Validators.maxLength(3), this.validationService.validateNumber, Validators.pattern("^[0-9]*$")]],
+            TotalHoursSpentLookupId: [this.caseBook.Manage.TotalHoursSpentLookupId == undefined ? null : this.caseBook.Manage.TotalHoursSpentLookupId.toString(), [Validators.maxLength(5), this.validationService.validateNumber, this.validationService.validateTime]],
 
-            ReasonForClosureStatus: new FormControl(this.caseBook.Manage.ReasonForClosureStatus),
-            CaseSubject: new FormControl(this.caseBook.Manage.CaseSubject),
-            CaseDescription: new FormControl(this.caseBook.Manage.CaseDescription),
+            ReasonForClosureStatus: [this.caseBook.Manage.ReasonForClosureStatus],
+            CaseSubject: [this.caseBook.Manage.CaseSubject],
+            CaseDescription: [this.caseBook.Manage.CaseDescription],
 
-            RelationshipWithPMLookupId: new FormControl(this.caseBook.Manage.RelationshipWithPMLookupId == undefined ? null : this.caseBook.Manage.RelationshipWithPMLookupId.toString()),
-            ResolutionLog: new FormControl(this.caseBook.Manage.ResolutionLog)
+            RelationshipWithPMLookupId: [this.caseBook.Manage.RelationshipWithPMLookupId == undefined ? null : this.caseBook.Manage.RelationshipWithPMLookupId.toString()],
+            ResolutionLog: [this.caseBook.Manage.ResolutionLog]
         });
     }
 
@@ -1000,29 +1000,29 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         this.caseBook.SelectedMental.CaseId = this.caseBook.Case.CaseId;
 
         this.caseMentalForm = this.fb.group({
-            MentalAbstractionLookupId: new FormControl(this.caseBook.SelectedMental.MentalAbstractionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalAbstractionLookupId.toString()),
-            MentalAttentionLookupId: new FormControl(this.caseBook.SelectedMental.MentalAttentionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalAttentionLookupId.toString()),
-            MentalBehaviourLookupId: new FormControl(this.caseBook.SelectedMental.MentalBehaviourLookupId == undefined ? null : this.caseBook.SelectedMental.MentalBehaviourLookupId.toString()),
-            MentalBodyTypeLookupId: new FormControl(this.caseBook.SelectedMental.MentalBodyTypeLookupId == undefined ? null : this.caseBook.SelectedMental.MentalBodyTypeLookupId.toString()),
+            MentalAbstractionLookupId: [this.caseBook.SelectedMental.MentalAbstractionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalAbstractionLookupId.toString()],
+            MentalAttentionLookupId: [this.caseBook.SelectedMental.MentalAttentionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalAttentionLookupId.toString()],
+            MentalBehaviourLookupId: [this.caseBook.SelectedMental.MentalBehaviourLookupId == undefined ? null : this.caseBook.SelectedMental.MentalBehaviourLookupId.toString()],
+            MentalBodyTypeLookupId: [this.caseBook.SelectedMental.MentalBodyTypeLookupId == undefined ? null : this.caseBook.SelectedMental.MentalBodyTypeLookupId.toString()],
 
-            MentalContentLookupId: new FormControl(this.caseBook.SelectedMental.MentalContentLookupId == undefined ? null : this.caseBook.SelectedMental.MentalContentLookupId.toString()),
-            MentalDressLookupId: new FormControl(this.caseBook.SelectedMental.MentalDressLookupId == undefined ? null : this.caseBook.SelectedMental.MentalDressLookupId.toString()),
-            MentalEstimatedIntellectLookupId: new FormControl(this.caseBook.SelectedMental.MentalEstimatedIntellectLookupId == undefined ? null : this.caseBook.SelectedMental.MentalEstimatedIntellectLookupId.toString()),
-            MentalExpressionLookupId: new FormControl(this.caseBook.SelectedMental.MentalExpressionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalExpressionLookupId.toString()),
+            MentalContentLookupId: [this.caseBook.SelectedMental.MentalContentLookupId == undefined ? null : this.caseBook.SelectedMental.MentalContentLookupId.toString()],
+            MentalDressLookupId: [this.caseBook.SelectedMental.MentalDressLookupId == undefined ? null : this.caseBook.SelectedMental.MentalDressLookupId.toString()],
+            MentalEstimatedIntellectLookupId: [this.caseBook.SelectedMental.MentalEstimatedIntellectLookupId == undefined ? null : this.caseBook.SelectedMental.MentalEstimatedIntellectLookupId.toString()],
+            MentalExpressionLookupId: [this.caseBook.SelectedMental.MentalExpressionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalExpressionLookupId.toString()],
 
-            MentalFlowOfThoughtLookupId: new FormControl(this.caseBook.SelectedMental.MentalFlowOfThoughtLookupId == undefined ? null : this.caseBook.SelectedMental.MentalFlowOfThoughtLookupId.toString()),
-            MentalHygieneLookupId: new FormControl(this.caseBook.SelectedMental.MentalHygieneLookupId == undefined ? null : this.caseBook.SelectedMental.MentalHygieneLookupId.toString()),
-            MentalImpulseControlLookupId: new FormControl(this.caseBook.SelectedMental.MentalImpulseControlLookupId == undefined ? null : this.caseBook.SelectedMental.MentalImpulseControlLookupId.toString()),
-            MentalInformationLookupId: new FormControl(this.caseBook.SelectedMental.MentalInformationLookupId == undefined ? null : this.caseBook.SelectedMental.MentalInformationLookupId.toString()),
+            MentalFlowOfThoughtLookupId: [this.caseBook.SelectedMental.MentalFlowOfThoughtLookupId == undefined ? null : this.caseBook.SelectedMental.MentalFlowOfThoughtLookupId.toString()],
+            MentalHygieneLookupId: [this.caseBook.SelectedMental.MentalHygieneLookupId == undefined ? null : this.caseBook.SelectedMental.MentalHygieneLookupId.toString()],
+            MentalImpulseControlLookupId: [this.caseBook.SelectedMental.MentalImpulseControlLookupId == undefined ? null : this.caseBook.SelectedMental.MentalImpulseControlLookupId.toString()],
+            MentalInformationLookupId: [this.caseBook.SelectedMental.MentalInformationLookupId == undefined ? null : this.caseBook.SelectedMental.MentalInformationLookupId.toString()],
 
-            MentalInsightLookupId: new FormControl(this.caseBook.SelectedMental.MentalInsightLookupId == undefined ? null : this.caseBook.SelectedMental.MentalInsightLookupId.toString()),
-            MentalJudgementLookupId: new FormControl(this.caseBook.SelectedMental.MentalJudgementLookupId == undefined ? null : this.caseBook.SelectedMental.MentalJudgementLookupId.toString()),
-            MentalMemoryLookupId: new FormControl(this.caseBook.SelectedMental.MentalMemoryLookupId == undefined ? null : this.caseBook.SelectedMental.MentalMemoryLookupId.toString()),
-            MentalMotorActivityLookupId: new FormControl(this.caseBook.SelectedMental.MentalMotorActivityLookupId == undefined ? null : this.caseBook.SelectedMental.MentalMotorActivityLookupId.toString()),
+            MentalInsightLookupId: [this.caseBook.SelectedMental.MentalInsightLookupId == undefined ? null : this.caseBook.SelectedMental.MentalInsightLookupId.toString()],
+            MentalJudgementLookupId: [this.caseBook.SelectedMental.MentalJudgementLookupId == undefined ? null : this.caseBook.SelectedMental.MentalJudgementLookupId.toString()],
+            MentalMemoryLookupId: [this.caseBook.SelectedMental.MentalMemoryLookupId == undefined ? null : this.caseBook.SelectedMental.MentalMemoryLookupId.toString()],
+            MentalMotorActivityLookupId: [this.caseBook.SelectedMental.MentalMotorActivityLookupId == undefined ? null : this.caseBook.SelectedMental.MentalMotorActivityLookupId.toString()],
 
-            MentalOrientationLookupId: new FormControl(this.caseBook.SelectedMental.MentalOrientationLookupId == undefined ? null : this.caseBook.SelectedMental.MentalOrientationLookupId.toString()),
-            MentalSpeechLookupId: new FormControl(this.caseBook.SelectedMental.MentalSpeechLookupId == undefined ? null : this.caseBook.SelectedMental.MentalSpeechLookupId.toString()),
-            MentalVocabularyLookupId: new FormControl(this.caseBook.SelectedMental.MentalVocabularyLookupId == undefined ? null : this.caseBook.SelectedMental.MentalVocabularyLookupId.toString())
+            MentalOrientationLookupId: [this.caseBook.SelectedMental.MentalOrientationLookupId == undefined ? null : this.caseBook.SelectedMental.MentalOrientationLookupId.toString()],
+            MentalSpeechLookupId: [this.caseBook.SelectedMental.MentalSpeechLookupId == undefined ? null : this.caseBook.SelectedMental.MentalSpeechLookupId.toString],
+            MentalVocabularyLookupId: [this.caseBook.SelectedMental.MentalVocabularyLookupId == undefined ? null : this.caseBook.SelectedMental.MentalVocabularyLookupId.toString()]
         });
         this.mentalModal.show();
     }
@@ -1056,25 +1056,25 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         this.caseBook.SelectedMental.MentalVocabularyLookupId = caseMental.MentalVocabularyLookupId;
 
         this.caseMentalForm = this.fb.group({
-            MentalAbstractionLookupId: new FormControl(this.caseBook.SelectedMental.MentalAbstractionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalAbstractionLookupId.toString()),
-            MentalAttentionLookupId: new FormControl(this.caseBook.SelectedMental.MentalAttentionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalAttentionLookupId.toString()),
-            MentalBehaviourLookupId: new FormControl(this.caseBook.SelectedMental.MentalBehaviourLookupId == undefined ? null : this.caseBook.SelectedMental.MentalBehaviourLookupId.toString()),
-            MentalBodyTypeLookupId: new FormControl(this.caseBook.SelectedMental.MentalBodyTypeLookupId == undefined ? null : this.caseBook.SelectedMental.MentalBodyTypeLookupId.toString()),
-            MentalContentLookupId: new FormControl(this.caseBook.SelectedMental.MentalContentLookupId == undefined ? null : this.caseBook.SelectedMental.MentalContentLookupId.toString()),
-            MentalDressLookupId: new FormControl(this.caseBook.SelectedMental.MentalDressLookupId == undefined ? null : this.caseBook.SelectedMental.MentalDressLookupId.toString()),
-            MentalEstimatedIntellectLookupId: new FormControl(this.caseBook.SelectedMental.MentalEstimatedIntellectLookupId == undefined ? null : this.caseBook.SelectedMental.MentalEstimatedIntellectLookupId.toString()),
-            MentalExpressionLookupId: new FormControl(this.caseBook.SelectedMental.MentalExpressionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalExpressionLookupId.toString()),
-            MentalFlowOfThoughtLookupId: new FormControl(this.caseBook.SelectedMental.MentalFlowOfThoughtLookupId == undefined ? null : this.caseBook.SelectedMental.MentalFlowOfThoughtLookupId.toString()),
-            MentalHygieneLookupId: new FormControl(this.caseBook.SelectedMental.MentalHygieneLookupId == undefined ? null : this.caseBook.SelectedMental.MentalHygieneLookupId.toString()),
-            MentalImpulseControlLookupId: new FormControl(this.caseBook.SelectedMental.MentalImpulseControlLookupId == undefined ? null : this.caseBook.SelectedMental.MentalImpulseControlLookupId.toString()),
-            MentalInformationLookupId: new FormControl(this.caseBook.SelectedMental.MentalInformationLookupId == undefined ? null : this.caseBook.SelectedMental.MentalInformationLookupId.toString()),
-            MentalInsightLookupId: new FormControl(this.caseBook.SelectedMental.MentalInsightLookupId == undefined ? null : this.caseBook.SelectedMental.MentalInsightLookupId.toString()),
-            MentalJudgementLookupId: new FormControl(this.caseBook.SelectedMental.MentalJudgementLookupId == undefined ? null : this.caseBook.SelectedMental.MentalJudgementLookupId.toString()),
-            MentalMemoryLookupId: new FormControl(this.caseBook.SelectedMental.MentalMemoryLookupId == undefined ? null : this.caseBook.SelectedMental.MentalMemoryLookupId.toString()),
-            MentalMotorActivityLookupId: new FormControl(this.caseBook.SelectedMental.MentalMotorActivityLookupId == undefined ? null : this.caseBook.SelectedMental.MentalMotorActivityLookupId.toString()),
-            MentalOrientationLookupId: new FormControl(this.caseBook.SelectedMental.MentalOrientationLookupId == undefined ? null : this.caseBook.SelectedMental.MentalOrientationLookupId.toString()),
-            MentalSpeechLookupId: new FormControl(this.caseBook.SelectedMental.MentalSpeechLookupId == undefined ? null : this.caseBook.SelectedMental.MentalSpeechLookupId.toString()),
-            MentalVocabularyLookupId: new FormControl(this.caseBook.SelectedMental.MentalVocabularyLookupId == undefined ? null : this.caseBook.SelectedMental.MentalVocabularyLookupId.toString())
+            MentalAbstractionLookupId: [this.caseBook.SelectedMental.MentalAbstractionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalAbstractionLookupId.toString()],
+            MentalAttentionLookupId: [this.caseBook.SelectedMental.MentalAttentionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalAttentionLookupId.toString()],
+            MentalBehaviourLookupId: [this.caseBook.SelectedMental.MentalBehaviourLookupId == undefined ? null : this.caseBook.SelectedMental.MentalBehaviourLookupId.toString()],
+            MentalBodyTypeLookupId: [this.caseBook.SelectedMental.MentalBodyTypeLookupId == undefined ? null : this.caseBook.SelectedMental.MentalBodyTypeLookupId.toString()],
+            MentalContentLookupId: [this.caseBook.SelectedMental.MentalContentLookupId == undefined ? null : this.caseBook.SelectedMental.MentalContentLookupId.toString()],
+            MentalDressLookupId: [this.caseBook.SelectedMental.MentalDressLookupId == undefined ? null : this.caseBook.SelectedMental.MentalDressLookupId.toString()],
+            MentalEstimatedIntellectLookupId: [this.caseBook.SelectedMental.MentalEstimatedIntellectLookupId == undefined ? null : this.caseBook.SelectedMental.MentalEstimatedIntellectLookupId.toString()],
+            MentalExpressionLookupId: [this.caseBook.SelectedMental.MentalExpressionLookupId == undefined ? null : this.caseBook.SelectedMental.MentalExpressionLookupId.toString()],
+            MentalFlowOfThoughtLookupId: [this.caseBook.SelectedMental.MentalFlowOfThoughtLookupId == undefined ? null : this.caseBook.SelectedMental.MentalFlowOfThoughtLookupId.toString()],
+            MentalHygieneLookupId: [this.caseBook.SelectedMental.MentalHygieneLookupId == undefined ? null : this.caseBook.SelectedMental.MentalHygieneLookupId.toString()],
+            MentalImpulseControlLookupId: [this.caseBook.SelectedMental.MentalImpulseControlLookupId == undefined ? null : this.caseBook.SelectedMental.MentalImpulseControlLookupId.toString()],
+            MentalInformationLookupId: [this.caseBook.SelectedMental.MentalInformationLookupId == undefined ? null : this.caseBook.SelectedMental.MentalInformationLookupId.toString()],
+            MentalInsightLookupId: [this.caseBook.SelectedMental.MentalInsightLookupId == undefined ? null : this.caseBook.SelectedMental.MentalInsightLookupId.toString()],
+            MentalJudgementLookupId: [this.caseBook.SelectedMental.MentalJudgementLookupId == undefined ? null : this.caseBook.SelectedMental.MentalJudgementLookupId.toString()],
+            MentalMemoryLookupId: [this.caseBook.SelectedMental.MentalMemoryLookupId == undefined ? null : this.caseBook.SelectedMental.MentalMemoryLookupId.toString()],
+            MentalMotorActivityLookupId: [this.caseBook.SelectedMental.MentalMotorActivityLookupId == undefined ? null : this.caseBook.SelectedMental.MentalMotorActivityLookupId.toString()],
+            MentalOrientationLookupId: [this.caseBook.SelectedMental.MentalOrientationLookupId == undefined ? null : this.caseBook.SelectedMental.MentalOrientationLookupId.toString()],
+            MentalSpeechLookupId: [this.caseBook.SelectedMental.MentalSpeechLookupId == undefined ? null : this.caseBook.SelectedMental.MentalSpeechLookupId.toString()],
+            MentalVocabularyLookupId: [this.caseBook.SelectedMental.MentalVocabularyLookupId == undefined ? null : this.caseBook.SelectedMental.MentalVocabularyLookupId.toString()]
         });
         this.mentalModal.show();
     }
@@ -1159,11 +1159,11 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         this.caseBook.SelectedSessionLog.SessionNotes = sessionLog.SessionNotes;
 
         this.caseSessionForm = this.fb.group({
-            CounselingDate: new FormControl(this.caseBook.SelectedSessionLog.CounselingDate, Validators.required),
-            TypeOfCounselingLookupId: new FormControl(this.caseBook.SelectedSessionLog.TypeOfCounselingLookupId == undefined ? null : this.caseBook.SelectedSessionLog.TypeOfCounselingLookupId.toString(), Validators.required),
-            DurationOfSessionMIn: new FormControl(this.caseBook.SelectedSessionLog.DurationOfSessionMIn, Validators.required),
-            NextSessionScheduled: new FormControl(this.caseBook.SelectedSessionLog.NextSessionScheduled),
-            SessionNotes: new FormControl(this.caseBook.SelectedSessionLog.SessionNotes, Validators.required)
+            CounselingDate: [this.caseBook.SelectedSessionLog.CounselingDate, Validators.required],
+            TypeOfCounselingLookupId: [this.caseBook.SelectedSessionLog.TypeOfCounselingLookupId == undefined ? null : this.caseBook.SelectedSessionLog.TypeOfCounselingLookupId.toString(), Validators.required],
+            DurationOfSessionMIn: [this.caseBook.SelectedSessionLog.DurationOfSessionMIn, Validators.required],
+            NextSessionScheduled: [this.caseBook.SelectedSessionLog.NextSessionScheduled],
+            SessionNotes: [this.caseBook.SelectedSessionLog.SessionNotes, Validators.required]
         });
 
         this.caseSessionForm.patchValue({ CounselingDate: { date: sessionLog.CounselingDate } });
@@ -1241,16 +1241,16 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         this.caseBook.SelectedFeedback.CaseId = this.caseBook.Case.CaseId;
 
         this.caseFeedbackForm = this.fb.group({
-            RespectedDuringYourVisitLookupId: new FormControl(this.caseBook.SelectedFeedback.RespectedDuringYourVisitLookupId == undefined ? null : this.caseBook.SelectedFeedback.RespectedDuringYourVisitLookupId.toString(), Validators.required),
-            FeelSafeAndSecureLookupId: new FormControl(this.caseBook.SelectedFeedback.FeelSafeAndSecureLookupId == undefined ? null : this.caseBook.SelectedFeedback.FeelSafeAndSecureLookupId.toString(), Validators.required),
-            FeelThatCounsellingLookupId: new FormControl(this.caseBook.SelectedFeedback.FeelThatCounsellingLookupId == undefined ? null : this.caseBook.SelectedFeedback.FeelThatCounsellingLookupId.toString(), Validators.required),
-            AssistanceOfPeacemakerLookupId: new FormControl(this.caseBook.SelectedFeedback.AssistanceOfPeacemakerLookupId == undefined ? null : this.caseBook.SelectedFeedback.AssistanceOfPeacemakerLookupId.toString(), Validators.required),
+            RespectedDuringYourVisitLookupId: [this.caseBook.SelectedFeedback.RespectedDuringYourVisitLookupId == undefined ? null : this.caseBook.SelectedFeedback.RespectedDuringYourVisitLookupId.toString(), Validators.required],
+            FeelSafeAndSecureLookupId: [this.caseBook.SelectedFeedback.FeelSafeAndSecureLookupId == undefined ? null : this.caseBook.SelectedFeedback.FeelSafeAndSecureLookupId.toString(), Validators.required],
+            FeelThatCounsellingLookupId: [this.caseBook.SelectedFeedback.FeelThatCounsellingLookupId == undefined ? null : this.caseBook.SelectedFeedback.FeelThatCounsellingLookupId.toString(), Validators.required],
+            AssistanceOfPeacemakerLookupId: [this.caseBook.SelectedFeedback.AssistanceOfPeacemakerLookupId == undefined ? null : this.caseBook.SelectedFeedback.AssistanceOfPeacemakerLookupId.toString(), Validators.required],
 
-            RecommendFreeCounsellingLookupId: new FormControl(this.caseBook.SelectedFeedback.RecommendFreeCounsellingLookupId == undefined ? null : this.caseBook.SelectedFeedback.RecommendFreeCounsellingLookupId.toString(), Validators.required),
-            AbleToImproveLookupId: new FormControl(this.caseBook.SelectedFeedback.AbleToImproveLookupId == undefined ? null : this.caseBook.SelectedFeedback.AbleToImproveLookupId.toString(), Validators.required),
-            OPMTeamToFollowupLookupId: new FormControl(this.caseBook.SelectedFeedback.OPMTeamToFollowupLookupId == undefined ? null : this.caseBook.SelectedFeedback.OPMTeamToFollowupLookupId.toString(), Validators.required),
+            RecommendFreeCounsellingLookupId: [this.caseBook.SelectedFeedback.RecommendFreeCounsellingLookupId == undefined ? null : this.caseBook.SelectedFeedback.RecommendFreeCounsellingLookupId.toString(), Validators.required],
+            AbleToImproveLookupId: [this.caseBook.SelectedFeedback.AbleToImproveLookupId == undefined ? null : this.caseBook.SelectedFeedback.AbleToImproveLookupId.toString(), Validators.required],
+            OPMTeamToFollowupLookupId: [this.caseBook.SelectedFeedback.OPMTeamToFollowupLookupId == undefined ? null : this.caseBook.SelectedFeedback.OPMTeamToFollowupLookupId.toString(), Validators.required],
 
-            AnySuggestions: new FormControl(this.caseBook.SelectedFeedback.AnySuggestions)
+            AnySuggestions: [this.caseBook.SelectedFeedback.AnySuggestions]
         });
         this.feedbackModal.show();
     }
@@ -1272,16 +1272,16 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
         this.caseBook.SelectedFeedback.AnySuggestions = feedback.AnySuggestions;
 
         this.caseFeedbackForm = this.fb.group({
-            RespectedDuringYourVisitLookupId: new FormControl(this.caseBook.SelectedFeedback.RespectedDuringYourVisitLookupId == undefined ? null : this.caseBook.SelectedFeedback.RespectedDuringYourVisitLookupId.toString(), Validators.required),
-            FeelSafeAndSecureLookupId: new FormControl(this.caseBook.SelectedFeedback.FeelSafeAndSecureLookupId == undefined ? null : this.caseBook.SelectedFeedback.FeelSafeAndSecureLookupId.toString(), Validators.required),
-            FeelThatCounsellingLookupId: new FormControl(this.caseBook.SelectedFeedback.FeelThatCounsellingLookupId == undefined ? null : this.caseBook.SelectedFeedback.FeelThatCounsellingLookupId.toString(), Validators.required),
-            AssistanceOfPeacemakerLookupId: new FormControl(this.caseBook.SelectedFeedback.AssistanceOfPeacemakerLookupId == undefined ? null : this.caseBook.SelectedFeedback.AssistanceOfPeacemakerLookupId.toString(), Validators.required),
+            RespectedDuringYourVisitLookupId: [this.caseBook.SelectedFeedback.RespectedDuringYourVisitLookupId == undefined ? null : this.caseBook.SelectedFeedback.RespectedDuringYourVisitLookupId.toString(), Validators.required],
+            FeelSafeAndSecureLookupId: [this.caseBook.SelectedFeedback.FeelSafeAndSecureLookupId == undefined ? null : this.caseBook.SelectedFeedback.FeelSafeAndSecureLookupId.toString(), Validators.required],
+            FeelThatCounsellingLookupId: [this.caseBook.SelectedFeedback.FeelThatCounsellingLookupId == undefined ? null : this.caseBook.SelectedFeedback.FeelThatCounsellingLookupId.toString(), Validators.required],
+            AssistanceOfPeacemakerLookupId: [this.caseBook.SelectedFeedback.AssistanceOfPeacemakerLookupId == undefined ? null : this.caseBook.SelectedFeedback.AssistanceOfPeacemakerLookupId.toString(), Validators.required],
 
-            RecommendFreeCounsellingLookupId: new FormControl(this.caseBook.SelectedFeedback.RecommendFreeCounsellingLookupId == undefined ? null : this.caseBook.SelectedFeedback.RecommendFreeCounsellingLookupId.toString(), Validators.required),
-            AbleToImproveLookupId: new FormControl(this.caseBook.SelectedFeedback.AbleToImproveLookupId == undefined ? null : this.caseBook.SelectedFeedback.AbleToImproveLookupId.toString(), Validators.required),
-            OPMTeamToFollowupLookupId: new FormControl(this.caseBook.SelectedFeedback.OPMTeamToFollowupLookupId == undefined ? null : this.caseBook.SelectedFeedback.OPMTeamToFollowupLookupId.toString(), Validators.required),
+            RecommendFreeCounsellingLookupId: [this.caseBook.SelectedFeedback.RecommendFreeCounsellingLookupId == undefined ? null : this.caseBook.SelectedFeedback.RecommendFreeCounsellingLookupId.toString(), Validators.required],
+            AbleToImproveLookupId: [this.caseBook.SelectedFeedback.AbleToImproveLookupId == undefined ? null : this.caseBook.SelectedFeedback.AbleToImproveLookupId.toString(), Validators.required],
+            OPMTeamToFollowupLookupId: [this.caseBook.SelectedFeedback.OPMTeamToFollowupLookupId == undefined ? null : this.caseBook.SelectedFeedback.OPMTeamToFollowupLookupId.toString(), Validators.required],
 
-            AnySuggestions: new FormControl(this.caseBook.SelectedFeedback.AnySuggestions)
+            AnySuggestions: [this.caseBook.SelectedFeedback.AnySuggestions]
         });
         this.feedbackModal.show();
     }
@@ -1322,15 +1322,15 @@ export class CasesDetailedComponent extends BaseCaseController implements OnInit
 
     private loadLegalFromGroup() {
         this.caseLegalForm = this.fb.group({
-            CaseNumber: new FormControl(this.caseBook.Legal.CaseNumber),
-            Court: new FormControl(this.caseBook.Legal.Court),
-            Prayer: new FormControl(this.caseBook.Legal.Prayer),
-            LegalRepresentative: new FormControl(this.caseBook.Legal.LegalRepresentative),
+            CaseNumber: [this.caseBook.Legal.CaseNumber],
+            Court: [this.caseBook.Legal.Court],
+            Prayer: [this.caseBook.Legal.Prayer],
+            LegalRepresentative: [this.caseBook.Legal.LegalRepresentative],
 
-            LegalConsentFormLookupId: new FormControl(this.caseBook.Legal.LegalConsentFormLookupId == undefined ? null : this.caseBook.Legal.LegalConsentFormLookupId.toString()),
-            LegalActionLookupId: new FormControl(this.caseBook.Legal.LegalActionLookupId == undefined ? null : this.caseBook.Legal.LegalActionLookupId.toString()),
-            OutcomeLookupId: new FormControl(this.caseBook.Legal.OutcomeLookupId == undefined ? null : this.caseBook.Legal.OutcomeLookupId.toString()),
-            DocumentsLookupId: new FormControl(this.caseBook.Legal.DocumentsLookupId == undefined ? null : this.caseBook.Legal.DocumentsLookupId.toString())
+            LegalConsentFormLookupId: [this.caseBook.Legal.LegalConsentFormLookupId == undefined ? null : this.caseBook.Legal.LegalConsentFormLookupId.toString()],
+            LegalActionLookupId: [this.caseBook.Legal.LegalActionLookupId == undefined ? null : this.caseBook.Legal.LegalActionLookupId.toString()],
+            OutcomeLookupId: [this.caseBook.Legal.OutcomeLookupId == undefined ? null : this.caseBook.Legal.OutcomeLookupId.toString()],
+            DocumentsLookupId: [this.caseBook.Legal.DocumentsLookupId == undefined ? null : this.caseBook.Legal.DocumentsLookupId.toString()]
         });
     }
 
