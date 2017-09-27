@@ -2,7 +2,7 @@
 (
 	CaseManageId INT ,
 	CaseId INT,
-	CaseStatusId TINYINT,
+	--CaseStatusId TINYINT,
 	ReferredtoWhom varchar(2000),
 
 	SourceOfCaseLookupId INT,

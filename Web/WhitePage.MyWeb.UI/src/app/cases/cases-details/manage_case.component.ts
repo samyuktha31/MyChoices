@@ -62,7 +62,7 @@ export class ManageCaseComponent implements OnInit {
     private loadManageFromGroup() {
         this.caseManageForm = this.fb.group({
 
-            CaseStatusId: [this.returnValue(this.caseBook.Manage.CaseStatusId)],
+            //CaseStatusId: [this.returnValue(this.caseBook.Manage.CaseStatusId)],
             ReferredToWhom: [this.caseBook.Manage.ReferredToWhom],
             SourceOfCaseLookupId: [this.returnValue(this.caseBook.Manage.SourceOfCaseLookupId)],
             SourceOfCaseDesc: [this.caseBook.Manage.SourceOfCaseDesc],
@@ -80,7 +80,7 @@ export class ManageCaseComponent implements OnInit {
 
     public onUpdateManage() {
         this.caseBook.Manage.CaseId = this.caseBook.Case.CaseId;
-        this.caseBook.Manage.CaseStatusId = this.caseManageForm.controls['CaseStatusId'].value;
+        //this.caseBook.Manage.CaseStatusId = this.caseManageForm.controls['CaseStatusId'].value;
         this.caseBook.Manage.ReferredToWhom = this.caseManageForm.controls['ReferredToWhom'].value;
         this.caseBook.Manage.SourceOfCaseLookupId = this.caseManageForm.controls['SourceOfCaseLookupId'].value;
         this.caseBook.Manage.SourceOfCaseDesc = this.caseManageForm.controls['SourceOfCaseDesc'].value;

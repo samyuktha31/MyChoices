@@ -140,7 +140,7 @@ namespace WhitePage.ResourceAccess.Implementation.Ops
             if (result.Spouse == null) result.Spouse = new CaseSpouse();
             if (result.PhysicalHealth == null) result.PhysicalHealth = new CasePhysicalHealth();
             if (result.Abuse == null) result.Abuse = new CaseAbuse();
-            if (result.Manage == null) result.Manage = new CaseManage() { CaseStatusId = result.Case.CaseStausId };
+            //if (result.Manage == null) result.Manage = new CaseManage() { CaseStatusId = result.Case.CaseStausId };
             if (result.Legal == null) result.Legal = new CaseLegal();
 
             result.SelectedMental = this.unitOfWork.DbContext.Mental.Where(c => c.CaseId == caseId).FirstOrDefault();
@@ -482,7 +482,7 @@ namespace WhitePage.ResourceAccess.Implementation.Ops
                 else
                     caseManageObj = this.unitOfWork.DbContext.Manage.Add(caseBook.Manage);
                 caseObj = this.unitOfWork.DbContext.Cases.Find(caseBook.Case.CaseId);
-                caseObj.CaseStausId = caseManageObj.CaseStatusId;
+                //caseObj.CaseStausId = caseManageObj.CaseStatusId;
                 int flag = this.unitOfWork.DbContext.SaveChanges();
             }
             catch (Exception ex)

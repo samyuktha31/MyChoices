@@ -304,7 +304,6 @@ namespace WhitePage.ResourceAccess
                 columnCollection
                     .AddColumn("CaseManageId", DbColumnType.Int)
                     .AddColumn("CaseId", DbColumnType.Int)
-                    .AddColumn("CaseStatusId", DbColumnType.Byte)
                     .AddColumn("ReferredToWhom", DbColumnType.String)
 
                     .AddColumn("SourceOfCaseLookupId", DbColumnType.Int)

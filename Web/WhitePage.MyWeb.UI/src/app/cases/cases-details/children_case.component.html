@@ -51,7 +51,7 @@
 
                                     <div class="form-group">
                                         <label for="Name">Name *</label>
-                                        <textarea placeholder="Name" formControlName="Name" class="form-control"></textarea>
+                                        <input placeholder="Name" formControlName="Name" class="form-control" />
                                         <div>
                                             <small *ngIf="caseChildrenForm.controls.Name.hasError('required') && caseChildrenForm.controls.Name.touched" class="mat-text-warn">Name is required.</small>
                                         </div>

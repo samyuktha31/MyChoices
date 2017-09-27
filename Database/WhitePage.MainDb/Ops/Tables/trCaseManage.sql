@@ -2,7 +2,6 @@
 (
 	[CaseManageId] INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	CaseId INT,
-	CaseStatusId TINYINT,
 	ReferredToWhom varchar(2000),
 
 	SourceOfCaseLookupId INT,
