@@ -64,7 +64,7 @@
 
                     <div class="form-group">
                         <label for="Mi">M.I.</label>
-                        <textarea placeholder="Middle Initials" formControlName="Mi" [(ngModel)]="caseBook.Case.Mi" class="form-control" maxlength="2000"></textarea>
+                        <input placeholder="Middle Initials" formControlName="Mi" [(ngModel)]="caseBook.Case.Mi" class="form-control" />
                     </div>
 
                     <div class="form-group">
@@ -91,8 +91,8 @@
                         <div class="form-group" [class.has-danger]="casePrimaryForm.controls.MobileNumber.invalid && casePrimaryForm.controls.MobileNumber.touched">
                             <input placeholder="Mobile" formControlName="MobileNumber" class="form-control" digits maxlength="14" />
                             <div>
-                                <small *ngIf="casePrimaryForm.controls.MobileNumber.hasError('required') && casePrimaryForm.controls.MobileNumber.touched">Mobile is required.</small>
-                                <small *ngIf="casePrimaryForm.controls.MobileNumber.dirty && casePrimaryForm.controls.MobileNumber.invalid">Please provide a valid Mobile Number</small>
+                                <small *ngIf="casePrimaryForm.controls.MobileNumber.hasError('required') && casePrimaryForm.controls.MobileNumber.touched" class="mat-text-warn">Mobile is required.</small>
+                                <small *ngIf="casePrimaryForm.controls.MobileNumber.dirty && casePrimaryForm.controls.MobileNumber.invalid" class="mat-text-warn">Please provide a valid Mobile Number</small>
                             </div>
                         </div>
                     </div>

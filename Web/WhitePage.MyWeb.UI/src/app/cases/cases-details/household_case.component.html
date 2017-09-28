@@ -90,13 +90,11 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="form-group" [class.has-danger]="clientAndHouseholdForm.controls.ClientEmailId.invalid && clientAndHouseholdForm.controls.ClientEmailId.touched">
                             <label for="ClientEmailId">Client's Email</label>
                             <input type="email" id="ClientEmailId" formControlName="ClientEmailId" inputmode="email" class="form-control" />
-                            <small *ngIf="clientAndHouseholdForm.controls.ClientEmailId.dirty && clientAndHouseholdForm.controls.ClientEmailId.invalid">
+                            <small *ngIf="clientAndHouseholdForm.controls.ClientEmailId.dirty && clientAndHouseholdForm.controls.ClientEmailId.invalid" class="mat-text-warn">
                                 Please provide a valid email
                             </small>
-                        </div>
                     </div>
 
                     <div class="form-group">
@@ -177,7 +175,7 @@
                     <div class="form-group">
                         <label for="YearsOfMarriage">Years of marriage</label>
                         <input formControlName="YearsOfMarriage" digits maxlength="2" class="form-control" />
-                        <small *ngIf="clientAndHouseholdForm.controls.YearsOfMarriage.dirty && clientAndHouseholdForm.controls.YearsOfMarriage.invalid">
+                        <small *ngIf="clientAndHouseholdForm.controls.YearsOfMarriage.dirty && clientAndHouseholdForm.controls.YearsOfMarriage.invalid" class="mat-text-warn">
                             Please provide valid years of marriage
                         </small>
                     </div>
@@ -185,7 +183,7 @@
                     <div class="form-group">
                         <label for="ClientAgeAtFirstChild">At what age did client have her first child?</label>
                         <input formControlName="ClientAgeAtFirstChild" digits maxlength="2" class="form-control" />
-                        <small *ngIf="clientAndHouseholdForm.controls.ClientAgeAtFirstChild.dirty && clientAndHouseholdForm.controls.ClientAgeAtFirstChild.invalid">
+                        <small *ngIf="clientAndHouseholdForm.controls.ClientAgeAtFirstChild.dirty && clientAndHouseholdForm.controls.ClientAgeAtFirstChild.invalid" class="mat-text-warn">
                             Please provide a valid age
                         </small>
                     </div>

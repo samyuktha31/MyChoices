@@ -45,23 +45,19 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="form-group" [class.has-danger]="caseManageForm.controls.TotalNoOfSessionsLookupId.invalid && caseManageForm.controls.TotalNoOfSessionsLookupId.touched">
-                            <label for="TotalNoOfSessionsLookupId">Total number of sessions</label>
-                            <input type="number" id="TotalNoOfSessionsLookupId" formControlName="TotalNoOfSessionsLookupId" class="form-control" />
-                            <small *ngIf="caseManageForm.controls.TotalNoOfSessionsLookupId.touched && caseManageForm.controls.TotalNoOfSessionsLookupId.invalid">
+                        <label for="TotalNoOfSessionsLookupId">Total number of sessions</label>
+                        <input type="number" id="TotalNoOfSessionsLookupId" formControlName="TotalNoOfSessionsLookupId" class="form-control" />
+                            <small *ngIf="caseManageForm.controls.TotalNoOfSessionsLookupId.touched && caseManageForm.controls.TotalNoOfSessionsLookupId.invalid" class="mat-text-warn">
                                 Value should be between 0 & 99 And Non-Fractional.
                             </small>
-                        </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="form-group" [class.has-danger]="caseManageForm.controls.TotalHoursSpentLookupId.invalid && caseManageForm.controls.TotalHoursSpentLookupId.touched">
-                            <label for="TotalHoursSpentLookupId">Total hours spent</label>
-                            <input type="number" id="TotalHoursSpentLookupId" formControlName="TotalHoursSpentLookupId" class="form-control" />
-                            <small *ngIf="caseManageForm.controls.TotalHoursSpentLookupId.touched && caseManageForm.controls.TotalHoursSpentLookupId.invalid">
+                        <label for="TotalHoursSpentLookupId">Total hours spent</label>
+                        <input type="number" id="TotalHoursSpentLookupId" formControlName="TotalHoursSpentLookupId" class="form-control" />
+                          <small *ngIf="caseManageForm.controls.TotalHoursSpentLookupId.touched && caseManageForm.controls.TotalHoursSpentLookupId.invalid" class="mat-text-warn">
                                 Value should be between 0 & 99 And two digit precision.
-                            </small>
-                        </div>
+                          </small>
                     </div>
 
                     <div class="form-group">

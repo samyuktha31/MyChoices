@@ -16,21 +16,17 @@
 
                     <div class="form-group">
                         <label for="SpouseHomePhone">Spouse Home phone</label>
-                        <div class="form-group" [class.has-danger]="spouseForm.controls.SpouseHomePhone.invalid && spouseForm.controls.SpouseHomePhone.touched">
-                            <input formControlName="SpouseHomePhone" digits maxlength="14" class="form-control" />
-                            <div>
-                                <small *ngIf="spouseForm.controls.SpouseHomePhone.dirty && spouseForm.controls.SpouseHomePhone.invalid">Please provide a valid Phone</small>
-                            </div>
+                        <input formControlName="SpouseHomePhone" digits maxlength="14" class="form-control" />
+                        <div>
+                            <small *ngIf="spouseForm.controls.SpouseHomePhone.dirty && spouseForm.controls.SpouseHomePhone.invalid" class="mat-text-warn">Please provide a valid Phone</small>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="SpouseMobilePhone">Spouse Mobile phone</label>
-                        <div class="form-group" [class.has-danger]="spouseForm.controls.SpouseMobilePhone.invalid && spouseForm.controls.SpouseMobilePhone.touched">
-                            <input formControlName="SpouseMobilePhone" digits maxlength="14" class="form-control" />
-                            <div>
-                                <small *ngIf="spouseForm.controls.SpouseMobilePhone.dirty && spouseForm.controls.SpouseMobilePhone.invalid">Please provide a valid Mobile</small>
-                            </div>
+                        <input formControlName="SpouseMobilePhone" digits maxlength="14" class="form-control" />
+                        <div>
+                            <small *ngIf="spouseForm.controls.SpouseMobilePhone.dirty && spouseForm.controls.SpouseMobilePhone.invalid" class="mat-text-warn">Please provide a valid Mobile</small>
                         </div>
                     </div>
 
@@ -93,11 +89,9 @@
 
                     <div class="form-group">
                         <label for="PIN">PIN</label>
-                        <div class="form-group" [class.has-danger]="spouseForm.controls.PIN.invalid && spouseForm.controls.PIN.touched">
-                            <input formControlName="PIN" digits maxlength="6" class="form-control" />
-                            <div>
-                                <small *ngIf="spouseForm.controls.PIN.dirty && spouseForm.controls.PIN.invalid">Please provide a valid PIN</small>
-                            </div>
+                        <input formControlName="PIN" digits maxlength="6" class="form-control" />
+                        <div>
+                            <small *ngIf="spouseForm.controls.PIN.dirty && spouseForm.controls.PIN.invalid" class="mat-text-warn">Please provide a valid PIN</small>
                         </div>
                     </div>
 
@@ -130,11 +124,9 @@
 
                     <div class="form-group">
                         <label for="PrimaryEmergencyContactPhoneNumber">Phone number</label>
-                        <div class="form-group" [class.has-danger]="spouseForm.controls.PrimaryEmergencyContactPhoneNumber.invalid && spouseForm.controls.PrimaryEmergencyContactPhoneNumber.touched">
-                            <input formControlName="PrimaryEmergencyContactPhoneNumber" digits maxlength="14" class="form-control" />
-                            <div>
-                                <small *ngIf="spouseForm.controls.PrimaryEmergencyContactPhoneNumber.dirty && spouseForm.controls.PrimaryEmergencyContactPhoneNumber.invalid">Please provide a valid Phone number</small>
-                            </div>
+                        <input formControlName="PrimaryEmergencyContactPhoneNumber" digits maxlength="14" class="form-control" />
+                        <div>
+                            <small *ngIf="spouseForm.controls.PrimaryEmergencyContactPhoneNumber.dirty && spouseForm.controls.PrimaryEmergencyContactPhoneNumber.invalid" class="mat-text-warn">Please provide a valid Phone number</small>
                         </div>
                     </div>
 
@@ -159,11 +151,9 @@
 
                     <div class="form-group">
                         <label for="SecondaryEmergencyContactPhoneNumber">Phone number</label>
-                        <div class="form-group" [class.has-danger]="spouseForm.controls.SecondaryEmergencyContactPhoneNumber.invalid && spouseForm.controls.SecondaryEmergencyContactPhoneNumber.touched">
-                            <input formControlName="SecondaryEmergencyContactPhoneNumber" digits maxlength="14" class="form-control" />
-                            <div>
-                                <small *ngIf="spouseForm.controls.SecondaryEmergencyContactPhoneNumber.dirty && spouseForm.controls.SecondaryEmergencyContactPhoneNumber.invalid">Please provide a valid Phone number</small>
-                            </div>
+                        <input formControlName="SecondaryEmergencyContactPhoneNumber" digits maxlength="14" class="form-control" />
+                        <div>
+                            <small *ngIf="spouseForm.controls.SecondaryEmergencyContactPhoneNumber.dirty && spouseForm.controls.SecondaryEmergencyContactPhoneNumber.invalid" class="mat-text-warn">Please provide a valid Phone number</small>
                         </div>
                     </div>
 

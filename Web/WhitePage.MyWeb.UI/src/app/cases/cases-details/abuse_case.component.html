@@ -116,9 +116,9 @@
 
                     <div class="form-group">
                         <label for="NumberOfYearsOfPhyscialAbuse">Number of years physical abuse has been occurring</label>
-                        <div class="form-group" [class.has-danger]="caseAbuseForm.controls.NumberOfYearsOfPhyscialAbuse.invalid && caseAbuseForm.controls.NumberOfYearsOfPhyscialAbuse.touched">
-                            <input type="number" id="NumberOfYearsOfPhyscialAbuse" formControlName="NumberOfYearsOfPhyscialAbuse" class="form-control" />
-                            <small *ngIf="caseAbuseForm.controls.NumberOfYearsOfPhyscialAbuse.touched && caseAbuseForm.controls.NumberOfYearsOfPhyscialAbuse.invalid">
+                        <input type="number" id="NumberOfYearsOfPhyscialAbuse" formControlName="NumberOfYearsOfPhyscialAbuse" class="form-control" />
+                        <div>
+                            <small *ngIf="caseAbuseForm.controls.NumberOfYearsOfPhyscialAbuse.touched && caseAbuseForm.controls.NumberOfYearsOfPhyscialAbuse.invalid" class="mat-text-warn">
                                 Value should be between 0 and 99
                             </small>
                         </div>
