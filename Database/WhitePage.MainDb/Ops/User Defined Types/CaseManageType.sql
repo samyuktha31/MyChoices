@@ -1,8 +1,8 @@
-﻿CREATE TYPE [Ops].[CaseManageType] AS TABLE
+﻿
+CREATE TYPE [Ops].[CaseManageType] AS TABLE
 (
 	CaseManageId INT ,
 	CaseId INT,
-	--CaseStatusId TINYINT,
 	ReferredtoWhom varchar(2000),
 
 	SourceOfCaseLookupId INT,

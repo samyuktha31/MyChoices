@@ -117,7 +117,6 @@ export class CasesMoveComponent extends BaseCaseController implements OnInit, On
     private changeStatus() {
 
         this.caseBook.Case.CaseStausId = this.mainForm.controls['CaseStatusId'].value;
-        //this.caseBook.Manage.CaseStatusId = this.mainForm.controls['CaseStatusId'].value;                                                            
 
         var previousCaseStatusLevel = this.caseStatusesList.find(caseStatusNode => caseStatusNode.CaseStatusId == this.caseBook.Case.CaseStausId).Level;
         var currentCaseStatus = this.caseBook.Case.CaseStausId;
@@ -415,7 +414,6 @@ export class CasesMoveComponent extends BaseCaseController implements OnInit, On
 
         //Case category 2
         this.caseBook.Case.CaseStausId = this.mainForm.controls['CaseStatusId'].value;
-        //this.caseBook.Manage.CaseStatusId = this.mainForm.controls['CaseStatusId'].value;
         this.caseBook.Manage.CaseSubject = this.category2Form.controls['CaseSubject'].value;
         this.caseBook.Manage.CaseDescription = this.category2Form.controls['CaseDescription'].value;
 
@@ -464,7 +462,6 @@ export class CasesMoveComponent extends BaseCaseController implements OnInit, On
 
     public updateCategory3() {
         this.caseBook.Case.CaseStausId = this.mainForm.controls['CaseStatusId'].value;
-        //this.caseBook.Manage.CaseStatusId = this.mainForm.controls['CaseStatusId'].value;
 
         this.caseBook.Manage.CaseSubject = this.category3Form.controls['CaseSubject'].value;
         this.caseBook.Manage.CaseDescription = this.category3Form.controls['CaseDescription'].value;
@@ -490,7 +487,6 @@ export class CasesMoveComponent extends BaseCaseController implements OnInit, On
     public updateCategory4() {
 
         this.caseBook.Case.CaseStausId = this.mainForm.controls['CaseStatusId'].value;
-        //this.caseBook.Manage.CaseStatusId = this.mainForm.controls['CaseStatusId'].value;
         this.caseBook.Manage.CaseSubject = this.category4Form.controls['CaseSubject'].value;
         this.caseBook.Manage.CaseDescription = this.category4Form.controls['CaseDescription'].value;
         //Household category 4
@@ -567,7 +563,6 @@ export class CasesMoveComponent extends BaseCaseController implements OnInit, On
     public updateCategory5() {
 
         this.caseBook.Case.CaseStausId = this.mainForm.controls['CaseStatusId'].value;
-        //this.caseBook.Manage.CaseStatusId = this.mainForm.controls['CaseStatusId'].value;
 
         this.caseBook.Legal.CaseId = this.caseBook.Case.CaseId;
 

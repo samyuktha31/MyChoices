@@ -11,8 +11,6 @@ namespace WhitePage.Entities.CaseManagement
         public int CaseManageId { get; set; }
         public int CaseId { get; set; }
 
-        //public byte CaseStatusId { get; set; }
-
         public int? SourceOfCaseLookupId { get; set; }
 
         public string ReferredToWhom { get; set; }
