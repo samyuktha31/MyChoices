@@ -1,14 +1,49 @@
 .breadcrumb {
-  position: relative;
-  margin-bottom: 1.5 * $spacer-y;
-  background : $breadcrumb-bg;
-  display: flex;
-  justify-content: center;
+    position: relative;
+    margin-bottom: 1.5 * $spacer-y;
+    background: $breadcrumb-bg;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    padding: 5px 0;
+    text-shadow: 0 1px rgba(0,0,0,.8);
+    background-color: rgba(0, 0, 0, 0.38);
+    background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,0));
+    -moz-box-shadow: 0 2px 0 rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,.3);
+    box-shadow: 0 2px 0 rgba(0,0,0,.3);
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
 
-  //@include borders($breadcrumb-borders);
+.breadcrumb:before,
+.breadcrumb:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: transparent;
+    bottom: -10px;
+}
+
+.breadcrumb:before {
+    border-width: 0 10px 10px 0;
+    border-right-color: rgba(0, 0, 0, 0.38);
+    left: 0;
+}
+
+.breadcrumb:after {
+    border-width: 0 0 10px 10px;
+    border-left-color: rgba(0, 0, 0, 0.38);
+    right: 0;
 }
 
 .breadcrumb-item.active {
-    font-size: 18px;
-    color: $brand-primary;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+span {
+    cursor: default;
+    outline: none;
 }
